@@ -8,14 +8,18 @@ const userSchema = new Schema({
     password: { type: String, minlength: 2, required: true }, //change to 6 at the end
     profilepic: { type: String, default: '/images/icon-userdefault.png' }, //remember to change default
    
-    favorsAsked: [{ type: Schema.Types.ObjectId, ref: 'Favor' }], //my favors created by me
-    favorsProvided: [{ type: Schema.Types.ObjectId, ref: 'Favor' }], //other favors
+    favorsCreated: [{ type: Schema.Types.ObjectId, ref: 'Favor' }],
+    favorsProvided: [{ type: Schema.Types.ObjectId, ref: 'Favor' }],
 
-    fRecived: Number,
+    fRecived: Number, //to the creator
     fRecivedScore: Number,
-    fGived: Number,
+    fGived: Number, //from the creator
     fGivedScore: Number
 })
 
 const User = mongoose.model('User', userSchema);
 module.exports = User;
+
+
+
+// age, name, email, password, profilepic, favorsAsked, favorsProvided, fRecived, fRecivedScore, fGived, fGivedScore
