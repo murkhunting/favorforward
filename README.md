@@ -1,6 +1,6 @@
-# Favor Trader
+# Favor Forward
 
-
+![](./public/images/logo-readme.png)
 
 ## Description
 
@@ -70,37 +70,36 @@ Favor model
 
 ```
 {
-  askerUserId: { type: Schema.Types.ObjectId, ref: 'User' },
-  providerUserId: [{ type: Schema.Types.ObjectId, ref: 'User' , default: null}],
-  title: { type: String, maxlength: 50},
-  date: { type:Date, required: true},
-  timeStart:  { type:Date, required: true },
-  timeEnd:  { type:Date, required: true },
-  location: { type:String, required: true },   //check what we need from mapbox
-  description: { type:Date, required: false },
-  tags: [String],
-  comments: [{user: Id, comment: String}], 
-  status: { type: String, enum: [ "Request to do favor pending", "Accept and reserve favor", "Finished"]},
-  timestamps: {createdAt: 'create_at', updatedAt: 'updated_at' },
-  satisfactionScore: { type: Schema.Types.ObjectId, ref: 'SatiScore' },
-  location: { 
-    type: { type: String }, 
-    coordinates: [Number]
-  }
+  {  
+    askerUserId: { type: Schema.Types.ObjectId, ref: 'User' }, //person who create it
+    providerUserId: [{ type: Schema.Types.ObjectId, ref: 'User' , default: null}],
+    title: { type: String, maxlength: 50},
+    date: { type:Date, required: true},
+    timeStart:  { type:Date, required: true },
+    timeEnd:  { type:Date, required: true },
+    description: { type:Date, required: false },
+    tags: [String],
+    comments: [{user: { type: Schema.Types.ObjectId, ref: 'User' }, comment: String}], 
+    status: { type: String, enum: [ "Request to do favor pending", "Accept and reserve favor", "Finished"]},
+    satisfactionScore: {
+        AskerToProviderScore: { type: Number, enum: [1, 2, 3, 4, 5], required: true},
+        AskerToProviderComment: { type: String, required: true},
+        ProviderToAskerScore: { type: Number, enum: [1, 2, 3, 4, 5], required: true},
+        ProviderToAskerComment: { type: String, required: true}
+    },
+    location: { 
+        type: { type: String }, 
+        coordinates: [Number]
+    }
+    },
+    {timestamps: {
+        createdAt: 'create_at',
+        updatedAt: 'updated_at' 
+        }  
+    }
 }
 ```
 
-Satisfaction model
-
-```
-{
-    favorId: [{ type: Schema.Types.ObjectId, ref: 'Trade' }],
-    AskerToProviderScore: { type: Number, enum: [1, 2, 3, 4, 5], required: true},
-    AskerToProviderComment: { type: String, enum: [1, 2, 3, 4, 5], required: true},
-    ProviderToAskerScore: { type: Number, enum: [1, 2, 3, 4, 5], required: true},
-    ProviderToAskerComment: { type: String, enum: [1, 2, 3, 4, 5], required: true}
-}
-```
 
 ## Backlog
 
@@ -110,9 +109,9 @@ Satisfaction model
 
 #### Git
 
-[Repository Link](https://github.com/MartaJank/why-so-serial-m2-project)
+[Repository Link](https://github.com/clayrisse/favorforward)
 
-[Deploy Link](https://why-so-serial.herokuapp.com/)
+[Deploy Link](https://favorforward.herokuapp.com/)
 
 #### Trello
 
