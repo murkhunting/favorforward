@@ -7,6 +7,10 @@ const Favor = require("./../models/Favor.model");
 //---helpers
 const isLoggedIn = require("./../utils/isLoggedIn");
 
-//---routes
+// //---routes
+// favorRouter.get("/create", (req, res, next) => {
+//     const props = {} //CL>cl current session user name to greet
+//     res.render("FavorCreate", props);
+// });
 
 module.exports = favorRouter;

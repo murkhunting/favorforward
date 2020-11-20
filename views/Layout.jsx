@@ -2,6 +2,9 @@ const React = require("react");
 
 function Layout(props) {
   // pass on props isUserLoggedIn, name
+
+  const goBack = () => window.history.back();
+
   return (
     <html lang="en">
       <head>
@@ -11,7 +14,7 @@ function Layout(props) {
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
         <title> {props.title ? props.title : "My App"} </title>
-        <link rel="stylesheet" href="/stylesheets/style.css" />
+        <link rel="stylesheet" href="./../stylesheets/style.css" />
       </head>
 
       <body>
