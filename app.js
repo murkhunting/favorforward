@@ -13,6 +13,8 @@ const authRouter = require("./routes/authRouter");
 const userRouter = require("./routes/userRouter");
 const favorRouter = require("./routes/favorRouter");
 
+
+
 const app = express();
 
 // DB CONNECTION
@@ -55,18 +57,44 @@ app.use(
 // ROUTES
 app.use("/auth", authRouter);
 app.use("/user", userRouter);
-app.use("/favor", favorRouter);
+// app.use("/favor", favorRouter);
 
 /* GET home page. */
 app.get("/", (req, res, next) => {
-  const props = {}//{ name: "Info" }; //CL>cl current session user name to greet
+  const props = {} //CL>cl current session user name to greet
   res.render("Home", props);
 });
 
 app.get("/info", (req, res, next) => {
-  const props = {}//{ name: "Info" }; //CL>cl current session user name to greet
+  const props = {} //CL>cl current session user name to greet
   res.render("Info", props);
 });
+
+
+
+app.get("/favor/create", (req, res, next) => {
+  const props = {} //CL>cl current session user name to greet
+  res.render("FavorCreate", props);
+});
+
+
+app.post("/favor/create", (req, res, next) => {
+
+  // const {title, date, timeStart, timeEnd, description, tag} = req.body;
+  const {title} = req.body;
+  // const currUser = req.session.currentUser._id;
+
+  // .create ( {title, date, timeStart, timeEnd, description, tag})
+  Favor
+  .create ( {title})
+  .then ((createdFavor) => {
+      console.log("createdFavor", createdFavor)
+      res.redirect('/')})
+  .catch ((err) => console.log(err))
+});
+
+
+
 
 
 module.exports = app;
