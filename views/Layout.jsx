@@ -49,7 +49,7 @@ function Layout(props) { // pass on props isUserLoggedIn, name
                 
             <li className="nav-item">
               <div className="navbar-texticon">
-                <a className="navbar-icontitle" href="/">
+                <a className="navbar-icontitle" href="/info">
                     <img className="navbar-icon" src="./images/icon-info.png"/>
                   <p className="navbar-title" >Info</p>
                 </a>
@@ -67,7 +67,7 @@ function Layout(props) { // pass on props isUserLoggedIn, name
 
             <li className="nav-item">
               <div className="navbar-texticon">
-                  <a className="navbar-icontitle" href="/activity-calendar">
+                  <a className="navbar-icontitle" href="/">
                   <img className="navbar-icon" src="./images/icon-calendar.png"/>
                   <p className="navbar-title">FavorMap</p>
                 </a>
@@ -76,7 +76,7 @@ function Layout(props) { // pass on props isUserLoggedIn, name
 
             <li className="nav-item">
               <div className="navbar-texticon">
-                <a className="navbar-icontitle" href="/amenities">
+                <a className="navbar-icontitle" href="/auth/login">
                   <img className="navbar-icon" src="./images/icon-home.png"/>
                   <p className="navbar-title">+Favor</p>
                 </a>
@@ -85,7 +85,7 @@ function Layout(props) { // pass on props isUserLoggedIn, name
           
             <li className="nav-item">
               <div className="navbar-texticon">
-                <a className="navbar-icontitle" href="/user/profile">
+                <a className="navbar-icontitle" href="/auth/signup">
                   <img className="navbar-icon" src="./images/icon-user.png"/>
 
                   { props.userIsLoggedIn 

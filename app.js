@@ -10,7 +10,8 @@ const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 
 const authRouter = require("./routes/authRouter");
-const siteRouter = require("./routes/siteRouter");
+const userRouter = require("./routes/userRouter");
+const favorRouter = require("./routes/favorRouter");
 
 const app = express();
 
@@ -53,11 +54,19 @@ app.use(
 
 // ROUTES
 app.use("/auth", authRouter);
-app.use("/", siteRouter);
+app.use("/user", userRouter);
+app.use("/favor", favorRouter);
 
 /* GET home page. */
 app.get("/", (req, res, next) => {
-  res.render("Home");
+  const props = {}//{ name: "Info" }; //CL>cl current session user name to greet
+  res.render("Home", props);
 });
+
+app.get("/info", (req, res, next) => {
+  const props = {}//{ name: "Info" }; //CL>cl current session user name to greet
+  res.render("Info", props);
+});
+
 
 module.exports = app;

@@ -2,7 +2,7 @@ const React = require("react");
 const Layout = require("./Layout");
 
 
-function Info() {
+function Info(props) {
   return (
     <Layout title="Info Page">
       <h1>Info Page</h1>
