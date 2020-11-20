@@ -2,14 +2,16 @@
 
 ![](./public/images/logo-readme.png)
 
+
 ## Description
 
 Favor forward is a page meant for charitable harts that want to contribute to their local community. Basically, it offers a platform to ad or request "favors"  for others to offer help based on their current location.
 
 
+
 ## User Stories
 
-​
+
 - **404** - As users, we want to be politely warned that this page does not exist and it was our fault to search for it.
 - **500** - As users, we want to be politely warned that the amazing team behind the project screwd it up and it's not our fault.​ :broken_heart
 ​
@@ -41,31 +43,30 @@ Favor forward is a page meant for charitable harts that want to contribute to th
 ![](./public/images/wirefreame-backlog.png)
 
 
+
 ## Server Routes (back-end)
 
-
-
-| L    | **Method**   | **Route**           | **Render View/ from-to**               | **Request - Body**                                           |
-| ---- | ------------ | ------------------- | -------------------------------------- | ------------------------------------------------------------ |
-| --   | ------------ | P U B L I C         | -------------------------------------  | ---------------                                              |
-| 1    | `GET`        | `/`                 | Home                                   | `[{favor.location}]`                                         |
-| 2    | `GET`        | `/:id/favordetail`  | Dashboard>**FavorDetail                |                                                              |
-| 3    | `GET`        | `/info`             | *>**Info**                             |                                                              |
-| --   | ------------ | P R I V A T E       | -------------------------------------  | ---------------                                              |
-| 1    | `GET`        | `/auth/signup`      | *>**Signup**                           |                                                              |
-| 2    | `POST`       | `/auth/signup`      | Signup>**Home**(prev page)             | `{email, password}`                                          |
-| 3    | `GET`        | `/auth/login`       | *>**Login**                            |                                                              |
-| 4    | `POST`       | `/auth/login`       | Login>**Home**(prev page)              | `{email, password}`                                          |
-| 5    | `GET`        | `/auth/logout`      | *>**Home**                             |                                                              |
-| 6    | `GET`        | `/user/dashboar/`   | *>**Dashboard**   (using current user) | `{age, name, email, password, profilepic, favorsAsked, favorsProvided, fRecived, fRecivedScore, fGived, fGivedScore}` |
-| 7    | `GET`        | `/user/edit`        | Dashboard>**UserEdit**                 | `{age, name, email, password, profilepic}`                   |
-| 8    | `POST`       | `/user/edit`        | UserEdit>**Dashboard**                 | `{age, name, email, password, profilepic}`                   |
-| 9    | `GET`        | `/favor/create`     | Dasboard>**FavorCreate**               | `{askerUserId, title, date, timeStart, timeEnd, description, tags, location}` |
-| 10   | `POST`       | `/favor/create`     | FavorCreate>**FavorDetail**            | `{askerUserId, title, date, timeStart, timeEnd, description, tags, location}` |
-| 11   | `GET`        | `/favor/:id/edit`   | FavorDetail>**FavorEdit**              | `{askerUserId, title, date, timeStart, timeEnd, description, tags, location}` |
-| 12   | `POST`       | `/favor/:id/edit`   | FavorEdit>**FavorDetail**              | `{askerUserId, title, date, timeStart, timeEnd, description, tags, location}` |
-| 13   | `POST`       | `/favor/:id/delete` | FavorDetail>**Dashboard**              |                                                              |
-| 14   |              |                     |                                        |                                                              |
+| L    | **Method** | **Route**               | **Render View/ from-to**               | **Request - Body**                                           |
+| ---- | ---------- | ----------------------- | -------------------------------------- | ------------------------------------------------------------ |
+|      |            | **P  U  B  L  I  C**    |                                        |                                                              |
+| 1    | `GET`      | `/`                     | Home                                   | `[{favor.location}]`                                         |
+| 2    | `GET`      | `/:id/favordetail`      | Dashboard>**FavorDetail                |                                                              |
+| 3    | `GET`      | `/info`                 | *>**Info**                             |                                                              |
+|      |            | **P  R  I  V  A  T  E** |                                        |                                                              |
+| 1    | `GET`      | `/auth/signup`          | *>**Signup**                           |                                                              |
+| 2    | `POST`     | `/auth/signup`          | Signup>**Home**(prev page)             | `{email, password}`                                          |
+| 3    | `GET`      | `/auth/login`           | *>**Login**                            |                                                              |
+| 4    | `POST`     | `/auth/login`           | Login>**Home**(prev page)              | `{email, password}`                                          |
+| 5    | `GET`      | `/auth/logout`          | *>**Home**                             |                                                              |
+| 6    | `GET`      | `/user/dashboar/`       | *>**Dashboard**   (using current user) | `{age, name, email, password, profilepic, favorsAsked, favorsProvided, fRecived, fRecivedScore, fGived, fGivedScore}` |
+| 7    | `GET`      | `/user/edit`            | Dashboard>**UserEdit**                 | `{age, name, email, password, profilepic}`                   |
+| 8    | `POST`     | `/user/edit`            | UserEdit>**Dashboard**                 | `{age, name, email, password, profilepic}`                   |
+| 9    | `GET`      | `/favor/create`         | Dasboard>**FavorCreate**               | `{askerUserId, title, date, timeStart, timeEnd, description, tags, location}` |
+| 10   | `POST`     | `/favor/create`         | FavorCreate>**FavorDetail**            | `{askerUserId, title, date, timeStart, timeEnd, description, tags, location}` |
+| 11   | `GET`      | `/favor/:id/edit`       | FavorDetail>**FavorEdit**              | `{askerUserId, title, date, timeStart, timeEnd, description, tags, location}` |
+| 12   | `POST`     | `/favor/:id/edit`       | FavorEdit>**FavorDetail**              | `{askerUserId, title, date, timeStart, timeEnd, description, tags, location}` |
+| 13   | `POST`     | `/favor/:id/delete`     | FavorDetail>**Dashboard**              |                                                              |
+| 14   |            |                         |                                        |                                                              |
 
 
 
@@ -73,7 +74,7 @@ Favor forward is a page meant for charitable harts that want to contribute to th
 
 User model
 
-```
+```javascript
 {
     age: { type: Number, min: 16 }, 
     name: { type: String },
@@ -93,7 +94,7 @@ User model
 
 Favor model
 
-```
+```javascript
 {
     createrUserId: { type: Schema.Types.ObjectId, ref: 'User' }, //person who creates it
     providerUserId: [{ type: Schema.Types.ObjectId, ref: 'User' , default: null}],
@@ -119,6 +120,8 @@ Favor model
 ```
 
 
+
+
 ## Backlog
 ​
 - **Satisfaction Score** - when the favor is finished, both users (the creator of the favor and the provider), can go to the history, click on the favor and rate the quality of the experience. Then, as a user, we will have a score in our profile with all the ratings that we got.
@@ -129,6 +132,7 @@ Favor model
 - **Public profile** - we want to see the others users profiles to see their score and the information they have.
 ​
  
+
 
 ## Links
 
@@ -145,3 +149,7 @@ Favor model
 #### Slides
 
 [Our amazing presentation!](https://docs.google.com/presentation/)
+
+#### API
+
+[MapBox API!](https://www.mapbox.com/)
