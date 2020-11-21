@@ -4,7 +4,7 @@ const Card = require("./components/Card");
 
 function Home(props) {
   return (
-    <Layout title="Home Page">
+    <Layout title="Home Page" userIsLoggedIn={props.userIsLoggedIn} name={props.name}>
       <h1>Home Page</h1>
       <Card
         text="smaller component example"

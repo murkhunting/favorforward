@@ -8,6 +8,7 @@ const mongoose = require("mongoose");
 const erv = require("express-react-views");
 const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
+// const isLoggedIn = require("./utils/isLoggedIn")
 
 const authRouter = require("./routes/authRouter");
 const userRouter = require("./routes/userRouter");
@@ -23,7 +24,7 @@ mongoose
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
-  .then(() => console.log("Connected to the FavorForwardDB."))
+  .then(() => console.log("Connected to the FavorForward-DB."))
   .catch((err) => console.log(err));
 
 // VIEW ENGINE SETUP
@@ -57,40 +58,25 @@ app.use(
 // ROUTES
 app.use("/auth", authRouter);
 app.use("/user", userRouter);
-// app.use("/favor", favorRouter);
+app.use("/favor", favorRouter);
 
 /* GET home page. */
 app.get("/", (req, res, next) => {
-  const props = {} //CL>cl current session user name to greet
+  let props = {}
+  if (req.session.currentUser) {
+  const userIsLoggedIn = Boolean(req.session.currentUser)
+      // const props = { userIsLoggedIn } //CL>cl current session user name to greet
+  // console.log("uuuuuuuser--------", req.session.currentUser.name)
+  const name = req.session.currentUser.name
+  props = { userIsLoggedIn, name } //CL>cl current session user name to greet
+  console.log("props", props)
+  }
   res.render("Home", props);
 });
 
 app.get("/info", (req, res, next) => {
-  const props = {} //CL>cl current session user name to greet
-  res.render("Info", props);
-});
 
-
-
-app.get("/favor/create", (req, res, next) => {
-  const props = {} //CL>cl current session user name to greet
-  res.render("FavorCreate", props);
-});
-
-
-app.post("/favor/create", (req, res, next) => {
-
-  // const {title, date, timeStart, timeEnd, description, tag} = req.body;
-  const {title} = req.body;
-  // const currUser = req.session.currentUser._id;
-
-  // .create ( {title, date, timeStart, timeEnd, description, tag})
-  Favor
-  .create ( {title})
-  .then ((createdFavor) => {
-      console.log("createdFavor", createdFavor)
-      res.redirect('/')})
-  .catch ((err) => console.log(err))
+  res.render("Info");
 });
 
 
