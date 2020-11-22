@@ -13,6 +13,7 @@ const MongoStore = require("connect-mongo")(session);
 const authRouter = require("./routes/authRouter");
 const userRouter = require("./routes/userRouter");
 const favorRouter = require("./routes/favorRouter");
+const Favor = require("./models/NewFavor.model");
 
 
 
@@ -62,16 +63,25 @@ app.use("/favor", favorRouter);
 
 /* GET home page. */
 app.get("/", (req, res, next) => {
-  let props = {}
-  if (req.session.currentUser) {
-  const userIsLoggedIn = Boolean(req.session.currentUser)
-      // const props = { userIsLoggedIn } //CL>cl current session user name to greet
-  // console.log("uuuuuuuser--------", req.session.currentUser.name)
-  const name = req.session.currentUser.name
-  props = { userIsLoggedIn, name } //CL>cl current session user name to greet
-  console.log("props", props)
-  }
-  res.render("Home", props);
+
+  Favor
+    .find()
+    .then(favorList => {
+      let props = {}
+      if (req.session.currentUser) {
+      const userIsLoggedIn = Boolean(req.session.currentUser)
+      const name = req.session.currentUser.name
+      props = { userIsLoggedIn, name , favorList} 
+      // console.log("props", props)
+      } else {
+        props = { favorList}
+      }
+      res.render("Home", props);
+    })
+
+
+
+
 });
 
 app.get("/info", (req, res, next) => {

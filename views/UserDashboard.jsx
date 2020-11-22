@@ -14,10 +14,10 @@ function UserDashboard(props) {
       <h2>{props.user.age}</h2>
       <br/> 
       <h3>Email:</h3>
-      <h2>{props.user.Email}</h2>
+      <h2>{props.user.email}</h2>
       <br/> 
       <h3>Favors:</h3>
-      <h2>{props.user.Email}</h2>
+      {/* <h2>{props.user.favorsCreated}</h2> */}
      
      
 
