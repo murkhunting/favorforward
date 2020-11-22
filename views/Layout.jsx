@@ -111,7 +111,7 @@ function Layout(props) { // pass on props isUserLoggedIn, name
                     {props.userIsLoggedIn ? (
                       <a className="navbar-icontitle" href="/user/dashboard">
                         <img className="navbar-icon" src="./../images/icon-user.png" />
-                        <p className="navbar-title">Profile</p>
+                        <p className="navbar-title">Dashboard</p>
                       </a>
                     ) : (
                       <a className="navbar-icontitle" href="/auth/signup">

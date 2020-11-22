@@ -53,7 +53,7 @@ authRouter.post("/signup", (req, res, next) => {
         .then((createdUser) => {
           req.session.currentUser = createdUser;
           //5. redirect to the home page
-          res.redirect("/info");
+          res.redirect("/");
         })
         .catch((err) => console.log(err));
     })

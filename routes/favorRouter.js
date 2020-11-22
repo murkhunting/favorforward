@@ -16,15 +16,23 @@ favorRouter.get("/create", isLoggedIn, (req, res, next) => {
 
 favorRouter.post("/create", (req, res, next) => {
 
-    const {title, date, timeStart, timeDuration, description, tag, location} = req.body;
-    const createrUserId = req.session.currentUser._id
+    const {title, date, timeStart, timeDuration, description, tags, location} = req.body;
+    const createrUser = req.session.currentUser._id
+    
     Favor
-    .create ( {createrUserId, title, date, timeStart, timeDuration, description, tag, location})
-    // .create ( {title})
-    .then ((createdFavor) => {
-        console.log("createdFavor", createdFavor)
-        res.redirect('/')})
-    .catch ((err) => console.log(err))
+        .create ( {createrUser, title, date, timeStart, timeDuration, description, tags, location})
+        .then ((createdFavor) => {
+            console.log("createdFavor", createdFavor)
+            const favorId = createdFavor._id
+            User
+                .findByIdAndUpdate(createrUser, { $set: {favorsCreated: favorId}}, {new:true})
+                .then (user => {
+                    res.redirect(`/favor/:${favorId}`)
+                })
+
+            res.redirect('/')})
+        .catch ((err) => console.log(err))
+
 });
 
 
@@ -40,3 +48,5 @@ favorRouter.get("/:id", (req, res , next) => {
 })
 
 module.exports = favorRouter;
+
+
