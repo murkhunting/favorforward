@@ -66,7 +66,7 @@ authRouter.get("/login", (req, res, next) => {
 });
 //POST /auth/login
 authRouter.post("/login", (req, res, next) => {
-  const { email, password, repeatPassword } = req.body;
+  const { email, password} = req.body;
   if (email === "" || password === "") {
     const props = { errorMessage: "Indicate email and password" };
     res.render("Login", props);
