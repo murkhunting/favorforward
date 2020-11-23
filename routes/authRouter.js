@@ -67,15 +67,12 @@ authRouter.get("/login", (req, res, next) => {
 //POST /auth/login
 authRouter.post("/login", (req, res, next) => {
   const { email, password, repeatPassword } = req.body;
-  if (email === "" || password === "" || repeatPassword === "") {
+  if (email === "" || password === "") {
     const props = { errorMessage: "Indicate email and password" };
     res.render("Login", props);
     return;
-  } else if (password !== repeatPassword) {
-    const props = { errorMessage: "Passwords not matching" };
-    res.render("SignUp");
-    return;
   }
+
   User.findOne({ email }).then((user) => {
     if (!user) {
       const props = { errorMessage: "This email doesn't exist" };

@@ -13,7 +13,6 @@ function Login(props) {
         <label>Password</label>
         <br />
         <input type="password" name="password" />
-        <input type="password" name="repeatPassword" />
 
         <button type="submit">Login</button>
       </form>
