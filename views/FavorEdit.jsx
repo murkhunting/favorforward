@@ -8,28 +8,28 @@ function FavorEdit(props) {
     <Layout title="Edit Favor Page">
       <h1>Edit Favor Page</h1>
       <br /><br />
-      <form id="" action="/favor/:id/edit" method="POST">
+      <form id="" action={`/favoredit/${props._id}`} method="POST">
         <label>Title:  </label>
-        <input type="text" name="title" placeholder={props.title} />
+        <input type="text" name="title" defaultValue={props.title} />
         <br /><br />
         <label>Date:  </label>
-        <input type="date" name="date" placeholder={Date.now}/>
+        <input type="date" name="date" />
         <br /><br />
         <label>Starting Time:  </label>
-        <input type="text" name="timeStart" placeholder={props.timeStart} />
+        <input type="text" name="timeStart" defaultValue={props.timeStart} />
         <br /><br />
         <label>Duration Time:  </label>
-        <input type="text" name="timeDuration" placeholder={props.timeDuration}  />
+        <input type="text" name="timeDuration" defaultValue={props.timeDuration}  />
         <br /><br />
         <label>Description:  </label>
-        <input type="text" name="description" placeholder={props.description} />
+        <input type="text" name="description" defaultValue={props.description} />
         <br /><br />
         <label>Tags:  </label>
-        <input type="text" name="tags" placeholder={props.tags}  />
+        <input type="text" name="tags" defaultValue={props.tags}  />
         <br /><br />
-        <label>Adress:  </label>
-        <input type="text" name="location" placeholder={props.location}  />
-        <br /><br />
+        {/* <label>Adress:  </label>
+        <input type="text" name="location" defaultValue={props.location}  />
+        <br /><br /> */}
 
         <button type="submit">Edit Favor</button>
 
