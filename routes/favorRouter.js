@@ -57,7 +57,7 @@ favorRouter.get("/favoredit/:id", isLoggedIn, (req, res, next) => {
     Favor
     .findById(favorId)
     .then( favorDetail => {
-        const props = favorDetail
+        // const propgit checkouts = favorDetail
         
         console.log("req.params.id", req.params.id, "favorDetail----->", props)
         res.render("FavorEdit", favorDetail)
