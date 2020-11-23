@@ -57,7 +57,7 @@ favorRouter.get("/favoredit/:id", isLoggedIn, (req, res, next) => {
     Favor
     .findById(favorId)
     .then( favorDetail => {
-        const props = favorDetail
+        // const propgit checkouts = favorDetail
         
         console.log("req.params.id", req.params.id, "favorDetail----->", props)
         res.render("FavorEdit", favorDetail)
@@ -75,7 +75,7 @@ favorRouter.post("/favoredit/:id", (req, res, next) => {
 // console.log("req.params.id", req.params.id;)
 console.log("req.params.id", req.params.id)
     // const favorId = req.params.id;
-    console.log("req.body", req.body)
+    console.log("req.body", req.body)  //CLAUDIA ESTUVO ACA
     const {title, date, timeStart, timeDuration, description, tags} = req.body;
     // const {title} = req.body;
     // const createrUser = req.session.currentUser._id

@@ -3,7 +3,7 @@ const app = require("../app");
 const authRouter = express.Router();
 
 const User = require("./../models/User.model");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 const saltRounds = 10;
 // const zxcvbn = require('zxcvbn'); ////CL>MM do we need to install this??
 
