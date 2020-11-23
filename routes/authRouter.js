@@ -44,6 +44,7 @@ authRouter.post("/signup", (req, res, next) => {
         return;
       } else {
       }
+
       //5. encriptamos el password
       const salt = bcrypt.genSaltSync(saltRounds);
       const hashedPassword = bcrypt.hashSync(password, salt);
@@ -98,7 +99,7 @@ authRouter.get('/logout', (req, res, next) => {
   req.session.destroy( ele => res.redirect("/"));
 });
   
-
+//borrar: jksnfklvfslvdvn;sdvf;advd;vjs;dv
 
 
 
