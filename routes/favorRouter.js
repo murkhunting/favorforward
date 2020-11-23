@@ -76,14 +76,14 @@ favorRouter.post("/favoredit/:id", (req, res, next) => {
 console.log("req.params.id", req.params.id)
     // const favorId = req.params.id;
     console.log("req.body", req.body)
-    const {title, date, timeStart, timeDuration, description, tags} = req.body;
+    const {title, date, timeStart, timeDuration, description, tags, location} = req.body;
     // const {title} = req.body;
     // const createrUser = req.session.currentUser._id
     
     Favor
     .findByIdAndUpdate ( 
         req.params.id, 
-         {title, date, timeStart, timeDuration, description, tags},
+         {title, date, timeStart, timeDuration, description, tags, location},
         // { $set: { title}}
         {new:true}
     )
