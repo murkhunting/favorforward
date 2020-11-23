@@ -70,7 +70,7 @@ favorRouter.get("/favoredit/:id", isLoggedIn, (req, res, next) => {
 
 //CL>CL you NEEEEEEEEEED to FIIIIIIIIIIIx thiiiiiiiiiii shiiiiiiiit  ;)
 
-
+// it works but needs checkup
 favorRouter.post("/favoredit/:id", (req, res, next) => {
 // console.log("req.params.id", req.params.id;)
 console.log("req.params.id", req.params.id)
