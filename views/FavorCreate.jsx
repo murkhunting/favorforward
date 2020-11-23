@@ -1,43 +1,49 @@
 const React = require("react");
 const Layout = require("./Layout");
 
-
 function FavorCreate() {
   return (
     <Layout title="Create Favor Page">
       <h1>Create Favor Page</h1>
-      <br /><br />
+      <br />
+      <br />
       <form id="form" action="/favor/create" method="POST">
-        
-        <label>Title:  </label>
+        <label>Title: </label>
         <input type="text" name="title" placeholder="Favor Title" />
-        <br /><br />
+        <br />
+        <br />
 
-        <label>Date:  </label>
-        <input type="date" name="date" placeholder={Date.now}/>
-        <br /><br />
+        <label>Date: </label>
+        <input type="date" name="date" placeholder={Date.now} />
+        <br />
+        <br />
 
-        <label>Starting Time:  </label>
+        <label>Starting Time: </label>
         <input type="text" name="timeStart" placeholder="Starting Time" />
-        <br /><br />
+        <br />
+        <br />
 
-        <label>Duration Time:  </label>
+        <label>Duration Time: </label>
         <input type="text" name="timeDuration" placeholder="Duration Time" />
-        <br /><br />
+        <br />
+        <br />
 
-        <label>Description:  </label>
+        <label>Description: </label>
         <input type="text" name="description" placeholder="Description" />
-        <br /><br />
+        <br />
+        <br />
 
-        <label>Tags:  </label>
+        <label>Tags: </label>
         <input type="text" name="tags" placeholder="Tags" />
-        <br /><br />
+        <br />
+        <br />
 
-        <label>Adress:  </label>
+        <label>Adress: </label>
         <input type="text" name="location" placeholder="Adress" />
-        <br /><br />
+        <br />
+        <br />
 
-        <button type="submit">Create account</button>
+        <button type="submit">Create Favor</button>
 
         {/* {
           props.errorMessage 
@@ -45,9 +51,6 @@ function FavorCreate() {
             : null
         } */}
       </form>
-
-     
-      
     </Layout>
   );
 }
