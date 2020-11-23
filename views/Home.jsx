@@ -6,6 +6,7 @@ function Home(props) {
   return (
     <Layout title="Home Page" userIsLoggedIn={props.userIsLoggedIn} name={props.name}>
       <h1>Home Page</h1>
+      <br/><br/>
       {/* <Card text="smaller component example" image="https://i.imgur.com/OH7dtc0.png" /> */}
       {/* <Card text="second example of component use" image="https://i.imgur.com/dHdzhWn.png" /> */}
 
