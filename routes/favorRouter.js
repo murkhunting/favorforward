@@ -8,12 +8,12 @@ const Favor = require("./../models/NewFavor.model");
 const isLoggedIn = require("./../utils/isLoggedIn");
 
 // //---routes
-favorRouter.get("/create", isLoggedIn, (req, res, next) => {
+favorRouter.get("/favor/create", isLoggedIn, (req, res, next) => {
   const props = {}; //CL>cl current session user name to greet
   res.render("FavorCreate", props);
 });
 
-favorRouter.post("/create", (req, res, next) => {
+favorRouter.post("/favor/create", (req, res, next) => {
   const {
     title,
     date,
@@ -54,7 +54,7 @@ favorRouter.post("/create", (req, res, next) => {
     });
 });
 
-favorRouter.get("/:id", (req, res, next) => {
+favorRouter.get("/favor/:id", (req, res, next) => {
   const favorId = req.params.id;
   Favor.findById(favorId)
     .then((favorDetail) => {
@@ -65,12 +65,13 @@ favorRouter.get("/:id", (req, res, next) => {
     .catch((error) => console.log(error));
 });
 
-favorRouter.get("/:id/edit", isLoggedIn, (req, res, next) => {
+favorRouter.get("/favoredit/:id", isLoggedIn, (req, res, next) => {
   const favorId = req.params.id;
   Favor.findById(favorId)
     .then((favorDetail) => {
       const props = favorDetail;
-      console.log("favorDetail----->", props);
+
+      console.log("req.params.id", req.params.id, "favorDetail----->", props);
       res.render("FavorEdit", favorDetail);
     })
     .catch((error) => console.log(error));
@@ -78,25 +79,28 @@ favorRouter.get("/:id/edit", isLoggedIn, (req, res, next) => {
 
 //CL>CL you NEEEEEEEEEED to FIIIIIIIIIIIx thiiiiiiiiiii shiiiiiiiit  ;)
 
-favorRouter.post("/:id/edit", (req, res, next) => {
+favorRouter.post("/favoredit/:id", (req, res, next) => {
   // console.log("req.params.id", req.params.id;)
-  const favorId = req.params.id;
+  console.log("req.params.id", req.params.id);
+  // const favorId = req.params.id;
   console.log("req.body", req.body);
-  // const {title, date, timeStart, timeDuration, description, tags, location} = req.body;
-  const { title } = req.body;
+  const { title, date, timeStart, timeDuration, description, tags } = req.body;
+  // const {title} = req.body;
   // const createrUser = req.session.currentUser._id
 
   Favor.findByIdAndUpdate(
-    favorId,
-    // { $set: {createrUser, title, date, timeStart, timeDuration, description, tags, location}},
-    { $set: { title } },
+    req.params.id,
+    { title, date, timeStart, timeDuration, description, tags },
+    // { $set: { title}}
     { new: true }
   )
     // .findByIdAndUpdate ( {title})
     .then((editedFavor) => {
       console.log("editedFavor", editedFavor);
+      console.log("editedFavorID", editedFavor._id);
       const favorId = editedFavor._id;
-      res.redirect(`/favor/${favorId}`);
+      // res.redirect(`/favor/${favorId}`)
+      res.redirect(`/`);
     })
     .catch((err) => {
       console.log(err);

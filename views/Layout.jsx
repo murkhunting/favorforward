@@ -58,7 +58,7 @@ function Layout(props) {
                 <li className="nav-item">
                   <div className="navbar-texticon">
                     <a className="navbar-icontitle" href="/">
-                        <img className="navbar-icon" src="./../images/icon-home.png"/>
+                        <img className="navbar-icon" src="./../../images/icon-home.png"/>
                       <p className="navbar-title" >FavorMap</p>
                     </a>
                   </div>

@@ -36,7 +36,7 @@ switch (props.date.getDay()) {
         <h3>Adress:</h3> {/* <h3>{props.location}</h3> */}
         <br />
       
-        <a className="" href={`/favor/${props._id}/edit`}>
+        <a className="" href={`/favoredit/${props._id}`}>
           <img className="navbar-icon" src="./../images/icon-logo.png" />
           <p className="navbar-title">Edit Favor</p>
         </a>
