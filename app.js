@@ -59,7 +59,7 @@ app.use(
 // ROUTES
 app.use("/auth", authRouter);
 app.use("/user", userRouter);
-app.use("/favor", favorRouter);
+app.use("/", favorRouter);
 
 /* GET home page. */
 app.get("/", (req, res, next) => {
@@ -80,16 +80,12 @@ app.get("/", (req, res, next) => {
     })
 
 
-
-
 });
 
 app.get("/info", (req, res, next) => {
 
   res.render("Info");
 });
-
-
 
 
 
