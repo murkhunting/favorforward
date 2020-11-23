@@ -21,6 +21,7 @@ function Login(props) {
         <div className="error-message"> {props.errorMessage}</div>
       ) : null}
 
+        <br />
       <p className="account-message">
         <a href="/auth/signup">Sign up!</a> if you don't have an account yet
       </p>

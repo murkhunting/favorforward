@@ -91,4 +91,12 @@ authRouter.post("/login", (req, res, next) => {
   });
 });
 
+authRouter.get('/logout', (req, res, next) => {
+  req.session.destroy( ele => res.redirect("/"));
+});
+  
+
+
+
+
 module.exports = authRouter;

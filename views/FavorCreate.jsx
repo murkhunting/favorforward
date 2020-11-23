@@ -14,7 +14,7 @@ function FavorCreate() {
         <br /><br />
 
         <label>Date:  </label>
-        <input type="date" name="date" />
+        <input type="date" name="date" placeholder={Date.now}/>
         <br /><br />
 
         <label>Starting Time:  </label>
