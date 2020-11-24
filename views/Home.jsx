@@ -14,24 +14,24 @@ function Home(props) {
           return (
             <a href={`/favor/${eachFavor.id}`}>
               <h2>{eachFavor.title}</h2>
-              <favorCard key={i} />
+              {/* <favorCard key={i} /> */}
             </a>
           )
         })
       }
 
-      {/* {props.beersFromApi.map( (beerObj, i) => {
-          return (
-            <a href={`/beers/${beerObj.id}`}>
-            <BeerCard i={i} beerObj={beerObj} details={false}/>
-            </a>
-                
-            );
-          })
-        } */}
+      <div id='map' style={{width: "1000px", height: "600px"}}></div>
 
+
+      <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.css' rel='stylesheet' />
+      <script async defer src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.js'></script>
+      <script async defer src="https://unpkg.com/axios/dist/axios.min.js"></script>
+      <script src="/javascripts/mapbox.js"></script>
     </Layout>
   );
 }
 
 module.exports = Home;
+
+
+
