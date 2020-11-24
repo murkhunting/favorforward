@@ -29,7 +29,7 @@ function FavorCreate() {
         <input type="text" name="description" placeholder="Description" />
         <br /><br />
 
-        <label>Tags:  </label>
+        <label>Tags: (optional) </label>
         <input type="text" name="tags" placeholder="Tags" />
         <br /><br />
 
