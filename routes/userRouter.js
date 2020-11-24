@@ -17,8 +17,6 @@ userRouter.get("/dashboard", isLoggedIn, (req, res, next) => {
     .findById(currentUser)
     .then (user => {
         const props = { userIsLoggedIn:true, user}
-        console.log("user is----------", req)
-        console.log("props is----------", props)
         res.render("UserDashboard", props)
     })
     .catch(error=> {console.log(error)})
@@ -26,13 +24,3 @@ userRouter.get("/dashboard", isLoggedIn, (req, res, next) => {
 
 module.exports = userRouter;
 
-// let props = {}
-//   if (req.session.currentUser) {
-//       // const props = { userIsLoggedIn } //CL>cl current session user name to greet
-//       // console.log("uuuuuuuser--------", req.session.currentUser.name)
-//     const userIsLoggedIn = Boolean(req.session.currentUser)
-//     const name = req.session.currentUser.name
-//     props = { userIsLoggedIn, name } //CL>cl current session user name to greet
-//     console.log("props", props)
-//   }
-//   res.render("Home", props);

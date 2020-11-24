@@ -19,8 +19,6 @@ function UserDashboard(props) {
       <h3>Favors:</h3>
       {/* <h2>{props.user.favorsCreated}</h2> */}
      
-     
-
 
     </Layout>
   );
