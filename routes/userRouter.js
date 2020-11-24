@@ -12,7 +12,6 @@ const isLoggedIn = require("./../utils/isLoggedIn");
 //---routes
 userRouter.get("/", isLoggedIn, (req, res, next) => {
   const currentUser = req.session.currentUser._id;
-
   User.findById(currentUser)
     .populate("favorsCreated")
     .populate("favorsProvided")
