@@ -1,11 +1,26 @@
 @import "styleReset.css";
 @import "styleNavbar.css";
 
+body{
+    background-color: #EFFAFB ;
+}
+
 .user-image{
     object-fit: cover;
     height: 250px;
     width: 250px;
     border-radius: 50%;
+    border: solid #36B8BF 3px;
+    
+}
+
+.profile-icon{
+    object-fit: cover;
+    height: 10vh;
+    width: 5vh;
+    border-radius: 50%;
+    min-height: 25px;
+    max-height: 40px;
+    object-fit: cover;
     border: solid black 1px;
-    padding: 5px
 }

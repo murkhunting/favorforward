@@ -21,6 +21,8 @@ function UserDashboard(props) {
       <h1>Profile page</h1>
       <br /> <br />
       <img className="user-image" src={`${props.user.profilepic}`} />
+      <br/>
+      <br/>
       <h3>Name:</h3>
       <h2>{props.user.name}</h2>
       <br />
@@ -30,16 +32,14 @@ function UserDashboard(props) {
       <h3>Email:</h3>
       <h2>{props.user.email}</h2>
       <br />
-      <a className="" href={"/user/edit"}>
-        <img className="navbar-icon" src="./../images/icon-logo.png" />
-        <p className="navbar-title">Edit Profile</p>
-      </a>
-      <br />
       <a className="navbar-icontitle" href="/auth/logout">
-        <img className="navbar-icon" src="./../images/icon-user.png" />
-        <p className="navbar-title">Log Out</p>
+        <img className="navbar-icon" src="./../icons/logout.png" />
+      </a>
+      <a className="" href={"/user/edit"}>
+        <img className="navbar-icon" src="./../icons/setting.png" />
       </a>
       <br />
+      <br/>
       <h3>Favors:</h3>
       <br />
       

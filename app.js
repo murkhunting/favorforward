@@ -69,7 +69,8 @@ app.get("/", (req, res, next) => {
       if (req.session.currentUser) {
       const userIsLoggedIn = Boolean(req.session.currentUser)
       const name = req.session.currentUser.name
-      props = { userIsLoggedIn, name , favorList} 
+      const profilepic = req.session.currentUser.profilepic
+      props = { userIsLoggedIn, name , profilepic, favorList} 
       // console.log("props", props)
       } else {
         props = { favorList}

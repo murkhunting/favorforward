@@ -58,8 +58,16 @@ function Layout(props) {
                 <li className="nav-item">
                   <div className="navbar-texticon">
                     <a className="navbar-icontitle" href="/">
-                        <img className="navbar-icon" src="./../../images/icon-home.png"/>
-                      <p className="navbar-title" >FavorMap</p>
+                        <img className="navbar-icon" src="./../../icons/map.png"/>
+                    
+                    </a>
+                  </div>
+                </li>
+                <li className="nav-item">
+                  <div className="navbar-texticon">
+                      <a className="navbar-icontitle" href="">
+                      <img className="navbar-icon" src="./../icons/search.png" />
+                        
                     </a>
                   </div>
                 </li>
@@ -67,53 +75,42 @@ function Layout(props) {
                 <li className="nav-item">
                   <div className="navbar-texticon">
                       <a className="navbar-icontitle" href="/favor/create">
-                      <img className="navbar-icon" src="./../images/icon-calendar.png" />
-                        <p className="navbar-title">+Favor</p>
+                      <img className="navbar-icon" src="./../icons/add.png" />
+                        
+                    </a>
+                  </div>
+                </li>
+                <li className="nav-item">
+                  <div className="navbar-texticon">
+                      <a className="navbar-icontitle" href="">
+                      <img className="navbar-icon" src="./../icons/chat.png"  />
+                        
                     </a>
                   </div>
                 </li>
 
-                <li className="nav-item">
+                {/* <li className="nav-item">
                   <div className="navbar-texticon">
                       <a className="navbar-icontitle" href="/info">
                       <img className="navbar-icon" src="./../images/icon-info.png"/>
                       <p className="navbar-title">Info</p>
                     </a>
                   </div>
-                </li>
+                </li> */}
 
-                <li className="nav-item">
-                  <div className="navbar-texticon">
-                  {props.userIsLoggedIn ? (
-                      <a className="navbar-icontitle" href="/auth/logout">
-                        <img className="navbar-icon" src="./../images/icon-user.png" />
-                        <p className="navbar-title">Log Out</p>
-                      </a>
-                    ) : (
-                      <a className="navbar-icontitle" href="/auth/login">
-                        <img className="navbar-icon" src="./../images/icon-user.png" />
-                        <p className="navbar-title">User</p>
-                      </a>
-                    )}
-
-                    {/* <a className="navbar-icontitle" href="/auth/login">
-                      <img className="navbar-icon" src="./../images/icon-user.png" />
-                      <p className="navbar-title">Login</p>
-                    </a> */}
-                  </div>
-                </li>
+              
 
                 <li className="nav-item">
                   <div className="navbar-texticon">
                     {props.userIsLoggedIn ? (
                       <a className="navbar-icontitle" href="/user">
-                        <img className="navbar-icon" src="./../images/icon-user.png" />
-                        <p className="navbar-title">Dashboard</p>
+                        <img className="profile-icon" src= {`${props.profilepic}`} />
+                        
                       </a>
                     ) : (
-                      <a className="navbar-icontitle" href="/auth/signup">
-                        <img className="navbar-icon" src="./../images/icon-user.png" />
-                        <p className="navbar-title">User</p>
+                      <a className="navbar-icontitle" href="/auth/login">
+                        <img className="navbar-icon" src="./../icons/user.png" />
+                        
                       </a>
                     )}
                   </div>
