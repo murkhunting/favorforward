@@ -11,7 +11,7 @@ function FavorEdit(props) {
         <input type="text" name="title" defaultValue={props.title} />
         <br /><br />
         <label>Date:  </label>
-        <input type="date" name="date" />
+        <input type="date" name="date" defaultValue={props.date} required/>
         <br /><br />
         <label>Starting Time:  </label>
         <input type="text" name="timeStart" defaultValue={props.timeStart} />
@@ -29,6 +29,7 @@ function FavorEdit(props) {
         <input type="text" name="location" defaultValue={props.location}  />
         <br /><br /> */}
 
+<<<<<<< HEAD
         <label>Tags: </label>
         <input type="text" name="tags" placeholder={props.tags} />
         <br />
@@ -42,6 +43,15 @@ function FavorEdit(props) {
         <button type="submit">Edit Favor</button>
       </form>
     </Layout>
+=======
+        <button type="submit">Edit Favor</button>
+      </form>
+
+      <form id="" action={`/favordelete/${props._id}`} method="POST">
+        <button type="submit">DELETE Favor</button>
+      </form>
+      </Layout>
+>>>>>>> develop
   );
 }
 

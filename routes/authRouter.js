@@ -11,14 +11,12 @@ const saltRounds = 10;
 const isLoggedIn = require("./../utils/isLoggedIn");
 
 //---routes
-////CL>MM remember to pass isLoggedIn from utils
 
-//GET /auth/signup
 authRouter.get("/signup", function (req, res, next) {
   res.render("SignUp");
 });
 
-//POST /auth/signup
+
 authRouter.post("/signup", (req, res, next) => {
   const { name, email, password, repeatPassword } = req.body;
   if (name === "" || email === "" || password === "" || repeatPassword === "") {
@@ -54,7 +52,7 @@ authRouter.post("/signup", (req, res, next) => {
     .catch((err) => next(err));
 });
 
-//GET /auth/login
+
 authRouter.get("/login", (req, res, next) => {
   res.render("Login");
 });

@@ -8,6 +8,7 @@ function FavorCreate() {
       <br />
       <br />
       <form id="form" action="/favor/create" method="POST">
+<<<<<<< HEAD
         <label>Title: </label>
         <input type="text" name="title" placeholder="Favor Title" />
         <br />
@@ -32,6 +33,28 @@ function FavorCreate() {
         <input type="text" name="description" placeholder="Description" />
         <br />
         <br />
+=======
+        
+        <label>Title:  </label>
+        <input type="text" name="title" placeholder="Favor Title" required/>
+        <br /><br />
+
+        <label>Date:  </label>
+        <input type="date" name="date" placeholder={Date.now()} required/>
+        <br /><br />
+
+        <label>Starting Time:  </label>
+        <input type="text" name="timeStart" placeholder="Starting Time" required/>
+        <br /><br />
+
+        <label>Duration Time:  </label>
+        <input type="text" name="timeDuration" placeholder="Duration Time" required/>
+        <br /><br />
+
+        <label>Description:  </label>
+        <input type="text" name="description" placeholder="Description" required/>
+        <br /><br />
+>>>>>>> develop
 
         <label>Tags: </label>
         <input type="text" name="tags" placeholder="Tags" />
