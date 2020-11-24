@@ -13,8 +13,8 @@ function Home(props) {
       { props.favorList.map( (eachFavor, i)=> {
           return (
             <a href={`/favor/${eachFavor.id}`}>
-            <h2>{eachFavor.title}</h2>
-            <favorCard i={i} />
+              <h2>{eachFavor.title}</h2>
+              <favorCard key={i} />
             </a>
           )
         })

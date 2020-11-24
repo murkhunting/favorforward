@@ -41,6 +41,10 @@ switch (props.date.getDay()) {
           <p className="navbar-title">Edit Favor</p>
         </a>
 
+        <form id="" action={`/favordo/${props._id}`} method="POST">
+         <button type="submit">DO Favor</button>
+        </form>
+
       </Layout>
   );
 }

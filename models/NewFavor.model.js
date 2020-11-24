@@ -1,8 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-// today = () => new Date(+new Date() + 7*24*60*60*1000)
-
 const favorSchema = new Schema({
     createrUser: { type: Schema.Types.ObjectId, ref: 'User' , default: null}, //person who creates it
     providerUser: { type: Schema.Types.ObjectId, ref: 'User'},

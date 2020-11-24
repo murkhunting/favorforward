@@ -10,23 +10,23 @@ function FavorCreate() {
       <form id="form" action="/favor/create" method="POST">
         
         <label>Title:  </label>
-        <input type="text" name="title" placeholder="Favor Title" />
+        <input type="text" name="title" placeholder="Favor Title" required/>
         <br /><br />
 
         <label>Date:  </label>
-        <input type="date" name="date" placeholder={Date.now}/>
+        <input type="date" name="date" placeholder={Date.now()} required/>
         <br /><br />
 
         <label>Starting Time:  </label>
-        <input type="text" name="timeStart" placeholder="Starting Time" />
+        <input type="text" name="timeStart" placeholder="Starting Time" required/>
         <br /><br />
 
         <label>Duration Time:  </label>
-        <input type="text" name="timeDuration" placeholder="Duration Time" />
+        <input type="text" name="timeDuration" placeholder="Duration Time" required/>
         <br /><br />
 
         <label>Description:  </label>
-        <input type="text" name="description" placeholder="Description" />
+        <input type="text" name="description" placeholder="Description" required/>
         <br /><br />
 
         <label>Tags:  </label>
