@@ -50,7 +50,8 @@ switch (props.favorDetail.date.getDay()) {
         </form>)
         )}
       
-      {props.favorDetail.status == "Favor Accepted" && (<form id="" action={`/favordo/${props.favorDetail._id}`} method="POST">
+      {props.favorDetail.status == "Favor Accepted" && (
+        <form id="" action={`/favorcancel/${props.favorDetail._id}`} method="POST">
         <button type="submit">Cancel Favor</button>
       </form>)}
 
@@ -59,3 +60,5 @@ switch (props.favorDetail.date.getDay()) {
 }
 
 module.exports = FavorDetail;
+
+
