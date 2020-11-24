@@ -44,10 +44,15 @@ switch (props.favorDetail.date.getDay()) {
           <p className="navbar-title">Edit Favor</p>
         </a>
       ) : (
+        props.favorDetail.status == "Favor Created" && (
         <form id="" action={`/favordo/${props.favorDetail._id}`} method="POST">
           <button type="submit">DO Favor</button>
-        </form>
-      )}
+        </form>)
+        )}
+      
+      {props.favorDetail.status == "Favor Accepted" && (<form id="" action={`/favordo/${props.favorDetail._id}`} method="POST">
+        <button type="submit">Cancel Favor</button>
+      </form>)}
 
     </Layout>
   );

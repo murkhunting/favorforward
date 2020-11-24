@@ -24,6 +24,20 @@ userRouter.get("/", isLoggedIn, (req, res, next) => {
     });
 });
 
+userRouter.get("/accepted", isLoggedIn, (req, res, next) => {
+  const currentUser = req.session.currentUser._id;
+  User.findById(currentUser)
+    .populate("favorsCreated")
+    .populate("favorsProvided")
+    .then((user) => {
+      const props = { userIsLoggedIn: true, user };
+      res.render("UserAccepted", props);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+});
+
 userRouter.get("/edit", isLoggedIn, (req, res, next) => {
   const currentUser = req.session.currentUser._id;
   User.findById(currentUser)
