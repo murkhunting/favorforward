@@ -29,7 +29,7 @@ function FavorCreate() {
         <input type="text" name="description" placeholder="Description" required/>
         <br /><br />
 
-        <label>Tags: </label>
+        <label>Tags: (optional) </label>
         <input type="text" name="tags" placeholder="Tags" />
         <br />
         <br />
@@ -47,6 +47,15 @@ function FavorCreate() {
             : null
         } */}
       </form>
+
+      <div id='map' style={{width: "1000px", height: "600px"}}></div>
+
+
+      <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.css' rel='stylesheet' />
+      <script async defer src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.js'></script>
+      <script async defer src="https://unpkg.com/axios/dist/axios.min.js"></script>
+      <script src="/javascripts/mapbox.js"></script>
+      
     </Layout>
   );
 }
