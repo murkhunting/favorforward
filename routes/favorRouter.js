@@ -36,11 +36,17 @@ favorRouter.post("/favor/create", (req, res, next) => {
 
 favorRouter.get("/favor/:id", (req, res , next) => {
     const favorId = req.params.id;
+    
     Favor
     .findById(favorId)
+    .populate("createrUser")
     .then( favorDetail => {
-        const props = favorDetail
-        res.render("FavorDetail", favorDetail)
+        
+        const currentUserId = req.session.currentUser._id
+        const props = {favorDetail, currentUserId}
+        console.log(favorDetail);
+        console.log(currentUserId);
+        res.render("FavorDetail", props)
     })
     .catch((error) => console.log(error));
 });
@@ -58,7 +64,7 @@ favorRouter.get("/favoredit/:id", isLoggedIn, (req, res, next) => {
 })
 
 
-favorRouter.post("/favoredit/:id", (req, res, next) => {
+favorRouter.post("/favoredit/:id", isLoggedIn, (req, res, next) => {
 
 console.log("req.params.id", req.params.id)
  
@@ -82,7 +88,7 @@ console.log("req.params.id", req.params.id)
 })
 
 
-favorRouter.post("/favordelete/:id", (req, res, next) => {
+favorRouter.post("/favordelete/:id", isLoggedIn, (req, res, next) => {
     const createrUserId = req.session.currentUser._id
     const deletedFavorId = req.params.id
 
@@ -93,23 +99,43 @@ favorRouter.post("/favordelete/:id", (req, res, next) => {
 
     Favor
     .findByIdAndDelete ( deletedFavorId )
-    .then( deletedFavor => res.redirect("/user/dashboard"))
+    .then( deletedFavor => res.redirect("/user"))
     .catch ((err) => console.log(err))
 })
 
 
-favorRouter.post("/favordo/:id", (req, res, next) => {
+favorRouter.post("/favordo/:id", isLoggedIn, (req, res, next) => {
     const currUserId = req.session.currentUser._id
     const doFavorId = req.params.id
  
+
+    
     User
-    .findByIdAndUpdate( currUserId, { $push: {favorsProvided: doFavorId}})
+    .findByIdAndUpdate( currUserId, { $push: {favorsProvided: doFavorId, }})
     .then( user => console.log("user", user))
     .catch((err)=>console.log(err))
     
     Favor
-    .findByIdAndUpdate( doFavorId, {providerUser: currUserId})
-    .then( user => res.redirect("/user/dashboard"))
+    .findByIdAndUpdate( doFavorId, {providerUser: currUserId, status: "Favor Accepted"})
+    .then( user => res.redirect("/user/"))
+    .catch((err)=>console.log(err))
+
+})
+
+favorRouter.post("/favorcancel/:id", (req, res, next) => {
+    const currUserId = req.session.currentUser._id
+    const doFavorId = req.params.id
+ 
+    User
+    .findByIdAndUpdate( currUserId, { $pull: {favorsProvided: doFavorId}})
+    .then( user => console.log("user", user))
+    .catch((err)=>console.log(err))
+    
+    Favor
+    // .findOneAndRemove ( doFavorId, {providerUser: currUserId})
+    // .findByIdAndUpdate( doFavorId, { $pull: {providerUser: currUserId, status: "Favor Created"}})
+    .findByIdAndUpdate( doFavorId, { $set: {providerUser: [], status: "Favor Created"}})
+    .then( user => res.redirect("/user"))
     .catch((err)=>console.log(err))
 
 })

@@ -1,7 +1,7 @@
 const React = require("react");
 const Layout = require("./Layout");
 
-function UserDashboard(props) {
+function UserAccepted(props) {
   
   let day = "";
   const getDayFavor = (x) => {
@@ -17,7 +17,7 @@ function UserDashboard(props) {
   };
 
   return (
-    <Layout title="UserDashboard Page">
+    <Layout title="UserAccepted Page">
       <h1>Profile page</h1>
       <br /> <br />
       <img className="user-image" src={`${props.user.profilepic}`} />
@@ -43,29 +43,26 @@ function UserDashboard(props) {
       <h3>Favors:</h3>
       <br />
       
-      <button type="button">CREATED</button>
+      <a className="" href={"/user"}><button type="button">CREATED</button></a>
       {/* <button type="button">PENDING</button> */}
-      <a className="" href={"/user/accepted"}><button type="button">ACCEPTED</button></a>
+      <button type="button">ACCEPTED</button>
       <br />
       <br />
-      {props.user.favorsCreated.map((favorCreated, i) => {
+      {props.user.favorsProvided.map((favorAccepted, i) => {
         return (
-          <a href={`/favor/${favorCreated.id}`}>
+          <a href={`/favor/${favorAccepted.id}`}>
             <h2>
-              {favorCreated.title.toUpperCase()} - Date:{" "}
-              {getDayFavor(favorCreated.date.getDay())}{" "}
-              {favorCreated.date.getDate()}/{favorCreated.date.getMonth()}
+              {favorAccepted.title.toUpperCase()} - Date:{" "}
+              {getDayFavor(favorAccepted.date.getDay())}{" "}
+              {favorAccepted.date.getDate()}/{favorAccepted.date.getMonth()}
             </h2>
             <br />
             <favorCard key={i} />
           </a>
         );
       })}
-      <br />
-      <br />
-      
     </Layout>
   );
 }
 
-module.exports = UserDashboard;
+module.exports = UserAccepted;
