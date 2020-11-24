@@ -9,7 +9,7 @@ function UserEdit(props) {
       <br />
       <form
         id="form"
-        action="/favor/edit"
+        action={`/user/edit?user_id=${props.user._id}`}
         method="POST"
         encType="multipart/form-data"
       >
@@ -18,22 +18,28 @@ function UserEdit(props) {
         <br />
         <br />
         <label>Name: </label>
-        <input type="text" name="name" placeholder={props.user.name} />
+        <input type="text" name="name" defaultValue={props.user.name} />
         <br />
         <br />
 
         <label>Email: </label>
-        <input type="email" name="email" placeholder={props.user.email} />
+        <input type="email" name="email" defaultValue={props.user.email} />
         <br />
         <br />
 
         <label>Age: </label>
-        <input type="text" name="Age" placeholder={props.user.age} />
+        <input type="text" name="age" defaultValue={props.user.age} />
         <br />
         <br />
 
         <button type="submit">Save Changes</button>
+        <br />
+        <br />
       </form>
+      <form id="" action={"/user/delete"} method="POST">
+        <button type="submit">Delete Account</button>
+      </form>
+      
     </Layout>
   );
 }

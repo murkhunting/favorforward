@@ -8,16 +8,16 @@ const parser = require("./../config/cloudinary");
 //---helpers
 const isLoggedIn = require("./../utils/isLoggedIn");
 
-//---routes
 
-userRouter.get("/dashboard", isLoggedIn, (req, res, next) => {
+//---routes
+userRouter.get("/", isLoggedIn, (req, res, next) => {
   const currentUser = req.session.currentUser._id;
 
   User.findById(currentUser)
+    .populate("favorsCreated")
+    .populate("favorsProvided")
     .then((user) => {
       const props = { userIsLoggedIn: true, user };
-      console.log("user is----------", req);
-      console.log("props is----------", props);
       res.render("UserDashboard", props);
     })
     .catch((error) => {
@@ -25,53 +25,50 @@ userRouter.get("/dashboard", isLoggedIn, (req, res, next) => {
     });
 });
 
-userRouter.get("/dashboard/edit", isLoggedIn, (req, res, next) => {
+userRouter.get("/edit", isLoggedIn, (req, res, next) => {
   const currentUser = req.session.currentUser._id;
-  console.log(currentUser);
   User.findById(currentUser)
     .then((user) => {
       const props = { userIsLoggedIn: true, user };
-      console.log("userDetail----->", props);
       res.render("UserEdit", props);
     })
     .catch((error) => console.log(error));
 });
 
-userRouter.post(
-  "/dashboard/edit",
-  parser.single("profilepic"),
-  (req, res, next) => {
-    // `multer` parses the incoming image coming from the form data and upload's it using
-    // the middleware `parse.single('profilepic') we set above.
+userRouter.post("/edit", isLoggedIn, parser.single("profilepic"), (req, res, next) => {
+    const { name, email, age } = req.body;
+    let profilepic;
+    if (req.file) profilepic = req.file.secure_url;
 
-    // The URL of the image uploaded to the cloudinary servers by the middleware becomes available via the `req.file.secure_url` property
-    let imageUrl;
-    if (req.file) imageUrl = req.file.secure_url; // check if the image was selected/uploaded
-
-    const newUser = { email, password, image: imageUrl };
-
-    // Here we usually have our authentication/signup logic...
-    // ...checking email/password, hashing password, etc.
-
-    User.create(newUser)
-      .then((createdUser) => {
-        createdUser.password = "***";
-        req.session.currentUser = createdUser;
-
-        res.redirect("/profile");
+    User.findByIdAndUpdate(
+      req.session.currentUser._id,
+      { profilepic, name, email, age },
+      { new: true }
+    )
+      .then((editedUser) => {
+        res.redirect("/user");
       })
       .catch((err) => console.log(err));
   }
 );
 
-// let props = {}
-//   if (req.session.currentUser) {
-//       // const props = { userIsLoggedIn } //CL>cl current session user name to greet
-//       // console.log("uuuuuuuser--------", req.session.currentUser.name)
-//     const userIsLoggedIn = Boolean(req.session.currentUser)
-//     const name = req.session.currentUser.name
-//     props = { userIsLoggedIn, name } //CL>cl current session user name to greet
-//     console.log("props", props)
-//   }
-//   res.render("Home", props);
+// POST /delete    MM->preguntar David!!!!!!!!!!!!!!
+userRouter.post("/delete", isLoggedIn, (req, res, next) => {
+  const {_id} = req.session.currentUser
+  console.log("id--------",_id);
+  User.findByIdAndDelete(_id)
+    .then(() => 
+    {
+    req.session.destroy((error)=> {
+      if (error){
+        console.log(error)
+      }else{
+        res.redirect("/")
+      }
+    })
+    })
+    .catch((err) => console.log(err));
+});
+
+
 module.exports = userRouter;

@@ -106,7 +106,7 @@ function Layout(props) {
                 <li className="nav-item">
                   <div className="navbar-texticon">
                     {props.userIsLoggedIn ? (
-                      <a className="navbar-icontitle" href="/user/dashboard">
+                      <a className="navbar-icontitle" href="/user">
                         <img className="navbar-icon" src="./../images/icon-user.png" />
                         <p className="navbar-title">Dashboard</p>
                       </a>

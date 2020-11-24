@@ -14,7 +14,7 @@ function Home(props) {
           return (
             <a href={`/favor/${eachFavor.id}`}>
             <h2>{eachFavor.title}</h2>
-            <favorCard i={i} />
+            <favorCard key={i} />
             </a>
           )
         })
