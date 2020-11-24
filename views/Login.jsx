@@ -5,16 +5,14 @@ function Login(props) {
   return (
     <Layout title="Log in Page">
       <h1>Log In</h1>
-        <br />
       <form id="form" action="/auth/login" method="POST">
         <label>Email</label>
-        <input type="text" name="email" placeholder="Enter your email" />
         <br />
+        <input type="text" name="email" placeholder="Enter your email" />
 
         <label>Password</label>
-        <input type="password" name="password" />
-        <input type="password" name="repeatPassword" />
         <br />
+        <input type="password" name="password" />
 
         <button type="submit">Login</button>
       </form>

@@ -1,18 +1,17 @@
 const express = require("express");
-const app = require('../app');
+const app = require("../app");
 const favorRouter = express.Router();
-const User = require('./../models/User.model');
-const Favor = require('./../models/NewFavor.model');
+const User = require("./../models/User.model");
+const Favor = require("./../models/NewFavor.model");
 
 //---helpers
 const isLoggedIn = require("./../utils/isLoggedIn");
 
 // //---routes
 favorRouter.get("/favor/create", isLoggedIn, (req, res, next) => {
-    const props = {} //CL>cl current session user name to greet
-    res.render("FavorCreate", props);
+  const props = {}; //CL>cl current session user name to greet
+  res.render("FavorCreate", props);
 });
-
 
 favorRouter.post("/favor/create", (req, res, next) => {
 
@@ -43,8 +42,8 @@ favorRouter.get("/favor/:id", (req, res , next) => {
         const props = favorDetail
         res.render("FavorDetail", favorDetail)
     })
-    .catch(error => console.log(error))
-})
+    .catch((error) => console.log(error));
+});
 
 favorRouter.get("/favoredit/:id", isLoggedIn, (req, res, next) => {
     const favorId = req.params.id;
@@ -115,4 +114,4 @@ favorRouter.post("/favordo/:id", (req, res, next) => {
 
 })
 
-module.exports = favorRouter
+module.exports = favorRouter;

@@ -2,8 +2,6 @@ const React = require("react");
 const Layout = require("./Layout");
 
 function FavorEdit(props) {
-
-
   return (
     <Layout title="Edit Favor Page">
       <h1>Edit Favor Page</h1>
