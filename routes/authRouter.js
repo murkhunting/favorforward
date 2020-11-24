@@ -28,16 +28,14 @@ authRouter.post("/signup", (req, res, next) => {
     const props = { errorMessage: "Passwords not matching" };
     res.render("SignUp", props);
     return;
-  } else {
-  }
+  } 
   User.findOne({ email: email })
     .then((user) => {
       if (user) {
         const props = { errorMessage: "This email already exist" };
         res.render("SignUp", props);
         return;
-      } else {
-      }
+      } 
       const salt = bcrypt.genSaltSync(saltRounds);
       const hashedPassword = bcrypt.hashSync(password, salt);
 
@@ -57,7 +55,6 @@ authRouter.get("/login", (req, res, next) => {
   res.render("Login");
 });
 
-//POST /auth/login
 authRouter.post("/login", (req, res, next) => {
   const { email, password} = req.body;
   if (email === "" || password === "") {

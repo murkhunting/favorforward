@@ -52,7 +52,6 @@ userRouter.post("/edit", isLoggedIn, parser.single("profilepic"), (req, res, nex
   }
 );
 
-// POST /delete    MM->preguntar David!!!!!!!!!!!!!!
 userRouter.post("/delete", isLoggedIn, (req, res, next) => {
   const {_id} = req.session.currentUser
   console.log("id--------",_id);

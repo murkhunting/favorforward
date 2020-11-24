@@ -9,6 +9,7 @@ function FavorCreate() {
       <br />
       <form id="form" action="/favor/create" method="POST">
 <<<<<<< HEAD
+<<<<<<< HEAD
         <label>Title: </label>
         <input type="text" name="title" placeholder="Favor Title" />
         <br />
@@ -34,6 +35,8 @@ function FavorCreate() {
         <br />
         <br />
 =======
+=======
+>>>>>>> develop
         
         <label>Title:  </label>
         <input type="text" name="title" placeholder="Favor Title" required/>
@@ -54,6 +57,9 @@ function FavorCreate() {
         <label>Description:  </label>
         <input type="text" name="description" placeholder="Description" required/>
         <br /><br />
+<<<<<<< HEAD
+>>>>>>> develop
+=======
 >>>>>>> develop
 
         <label>Tags: </label>

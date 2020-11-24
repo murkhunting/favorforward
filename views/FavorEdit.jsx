@@ -30,6 +30,7 @@ function FavorEdit(props) {
         <br /><br /> */}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         <label>Tags: </label>
         <input type="text" name="tags" placeholder={props.tags} />
         <br />
@@ -44,6 +45,8 @@ function FavorEdit(props) {
       </form>
     </Layout>
 =======
+=======
+>>>>>>> develop
         <button type="submit">Edit Favor</button>
       </form>
 
@@ -51,6 +54,9 @@ function FavorEdit(props) {
         <button type="submit">DELETE Favor</button>
       </form>
       </Layout>
+<<<<<<< HEAD
+>>>>>>> develop
+=======
 >>>>>>> develop
   );
 }

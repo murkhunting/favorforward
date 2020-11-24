@@ -15,6 +15,7 @@ favorRouter.get("/favor/create", isLoggedIn, (req, res, next) => {
 
 favorRouter.post("/favor/create", (req, res, next) => {
 <<<<<<< HEAD
+<<<<<<< HEAD
   const {
     title,
     date,
@@ -63,6 +64,8 @@ favorRouter.get("/favor/:id", (req, res, next) => {
       console.log("favorDetail----->", props);
       res.render("FavorDetail", favorDetail);
 =======
+=======
+>>>>>>> develop
 
     const {title, date, timeStart, timeDuration, description, tags, location} = req.body;
     const createrUser = req.session.currentUser._id
@@ -90,12 +93,16 @@ favorRouter.get("/favor/:id", (req, res , next) => {
     .then( favorDetail => {
         const props = favorDetail
         res.render("FavorDetail", favorDetail)
+<<<<<<< HEAD
+>>>>>>> develop
+=======
 >>>>>>> develop
     })
     .catch((error) => console.log(error));
 });
 
 favorRouter.get("/favoredit/:id", isLoggedIn, (req, res, next) => {
+<<<<<<< HEAD
 <<<<<<< HEAD
   const favorId = req.params.id;
   Favor.findById(favorId)
@@ -139,6 +146,8 @@ favorRouter.post("/favoredit/:id", (req, res, next) => {
     });
 });
 =======
+=======
+>>>>>>> develop
     const favorId = req.params.id;
     Favor
     .findById(favorId)
@@ -206,6 +215,9 @@ favorRouter.post("/favordo/:id", (req, res, next) => {
     .catch((err)=>console.log(err))
 
 })
+<<<<<<< HEAD
+>>>>>>> develop
+=======
 >>>>>>> develop
 
 module.exports = favorRouter;

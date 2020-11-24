@@ -2,6 +2,7 @@ const React = require("react");
 const Layout = require("./Layout");
 
 function UserDashboard(props) {
+  
   let day = "";
   const getDayFavor = (x) => {
     switch (x) {
@@ -14,6 +15,7 @@ function UserDashboard(props) {
       case 6: day = "Sat"; break;
     }
   };
+
   return (
     <Layout title="UserDashboard Page">
       <h1>Profile page</h1>
@@ -55,7 +57,7 @@ function UserDashboard(props) {
               {favorCreated.date.getDate()}/{favorCreated.date.getMonth()}
             </h2>
             <br />
-            <favorCard i={i} />
+            <favorCard key={i} />
           </a>
         );
       })}
@@ -70,7 +72,7 @@ function UserDashboard(props) {
               {favorAccepted.date.getDate()}/{favorAccepted.date.getMonth()}
             </h2>
             <br />
-            <favorCard i={i} />
+            <favorCard key={i} />
           </a>
         );
       })}
