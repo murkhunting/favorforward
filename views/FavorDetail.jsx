@@ -40,9 +40,15 @@ switch (props.date.getDay()) {
           <img className="navbar-icon" src="./../images/icon-logo.png" />
           <p className="navbar-title">Edit Favor</p>
         </a>
+        <br />
 
         <form id="" action={`/favordo/${props._id}`} method="POST">
          <button type="submit">DO Favor</button>
+        </form>
+        <br />
+
+        <form id="" action={`/favorcancel/${props._id}`} method="POST">
+         <button type="submit">Something came up, CAN'T do favor</button>
         </form>
 
       </Layout>

@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const favorSchema = new Schema({
     createrUser: { type: Schema.Types.ObjectId, ref: 'User' , default: null}, //person who creates it
-    providerUser: { type: Schema.Types.ObjectId, ref: 'User'},
+    providerUser: [{ type: Schema.Types.ObjectId, ref: 'User'}],
     title: { type: String, maxlength: 50, required: true},
     date: { type: Date,  required: true},
     timeStart:  { type: String, required: true },
