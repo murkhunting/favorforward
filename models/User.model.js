@@ -21,4 +21,3 @@ const userSchema = new Schema({
 const User = mongoose.model("User", userSchema);
 module.exports = User;
 
-// age, name, email, password, profilepic, favorsAsked, favorsProvided, fRecived, fRecivedScore, fGived, fGivedScore

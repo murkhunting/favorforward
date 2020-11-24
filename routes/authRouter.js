@@ -11,19 +11,17 @@ const saltRounds = 10;
 const isLoggedIn = require("./../utils/isLoggedIn");
 
 //---routes
-////CL>MM remember to pass isLoggedIn from utils
 
-//GET /auth/signup
 authRouter.get("/signup", function (req, res, next) {
   res.render("SignUp");
 });
 
-//POST /auth/signup
+
 authRouter.post("/signup", (req, res, next) => {
-  //1. Get values from the form req.body.username
+
   const { name, email, password, repeatPassword } = req.body;
   console.log(req.body);
-  //2. check if the form is empty and send an error message
+
   if (name === "" || email === "" || password === "" || repeatPassword === "") {
     const props = { errorMessage: "Enter your info" };
 
@@ -35,7 +33,7 @@ authRouter.post("/signup", (req, res, next) => {
     return;
   } else {
   }
-  //3. Check if username is taken
+
   User.findOne({ email: email })
     .then((user) => {
       if (user) {
@@ -45,15 +43,12 @@ authRouter.post("/signup", (req, res, next) => {
       } else {
       }
 
-      //5. encriptamos el password
       const salt = bcrypt.genSaltSync(saltRounds);
       const hashedPassword = bcrypt.hashSync(password, salt);
 
-      //4. Create new user in DB
       User.create({ name, email, password: hashedPassword })
         .then((createdUser) => {
           req.session.currentUser = createdUser;
-          //5. redirect to the home page
           res.redirect("/");
         })
         .catch((err) => console.log(err));
@@ -61,11 +56,12 @@ authRouter.post("/signup", (req, res, next) => {
     .catch((err) => next(err));
 });
 
-//GET /auth/login
+
 authRouter.get("/login", (req, res, next) => {
   res.render("Login");
 });
-//POST /auth/login
+
+
 authRouter.post("/login", (req, res, next) => {
   const { email, password, repeatPassword } = req.body;
   if (email === "" || password === "" || repeatPassword === "") {
@@ -99,7 +95,7 @@ authRouter.get('/logout', (req, res, next) => {
   req.session.destroy( ele => res.redirect("/"));
 });
   
-//borrar: jksnfklvfslvdvn;sdvf;advd;vjs;dv
+
 
 
 
