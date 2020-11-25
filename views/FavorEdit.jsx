@@ -3,7 +3,7 @@ const Layout = require("./Layout");
 
 function FavorEdit(props) {
   return (
-    <Layout title="Edit Favor Page">
+    <Layout title="Edit Favor Page" userIsLoggedIn={props.userIsLoggedIn} name={props.name} profilepic={props.profilepic}>
       <h1>Edit Favor Page</h1>
       <br /><br />
       <form id="" action={`/favoredit/${props._id}`} method="POST">

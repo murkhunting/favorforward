@@ -35,14 +35,14 @@ function Layout(props) {
                   </div> */}
                   <div id="logo">
                     <a className="navbar-icontitle" href="/">
-                      <img id="iclogo" className="navbar-icon" src="./../images/icon-logo.png" />
+                      <img id="iclogo" className="navbar-icon" src="./../icons/logo.png" />
                     </a>
                   </div>
                 </>
               : <>
                   <div id="logo">
                     <a className="navbar-icontitle" href="/">
-                      <img id="iclogo" className="navbar-icon" src="./../images/icon-logo.png" />
+                      <img id="iclogo" className="navbar-icon" src="./../icons/logo.png" />
                     </a>
                   </div>
                 </>

@@ -16,7 +16,16 @@ userRouter.get("/", isLoggedIn, (req, res, next) => {
     .populate("favorsCreated")
     .populate("favorsProvided")
     .then((user) => {
-      const props = { userIsLoggedIn: true, user };
+      let props = {}
+      if (req.session.currentUser) {
+      const userIsLoggedIn = Boolean(req.session.currentUser)
+      const name = req.session.currentUser.name
+      const profilepic = req.session.currentUser.profilepic
+      props = { userIsLoggedIn, name , profilepic, user} 
+      // console.log("props", props)
+      } else {
+        props = { user}
+      }
       res.render("UserDashboard", props);
     })
     .catch((error) => {
@@ -30,7 +39,16 @@ userRouter.get("/accepted", isLoggedIn, (req, res, next) => {
     .populate("favorsCreated")
     .populate("favorsProvided")
     .then((user) => {
-      const props = { userIsLoggedIn: true, user };
+      let props = {}
+      if (req.session.currentUser) {
+      const userIsLoggedIn = Boolean(req.session.currentUser)
+      const name = req.session.currentUser.name
+      const profilepic = req.session.currentUser.profilepic
+      props = { userIsLoggedIn, name , profilepic, user} 
+      // console.log("props", props)
+      } else {
+        props = { user}
+      }
       res.render("UserAccepted", props);
     })
     .catch((error) => {

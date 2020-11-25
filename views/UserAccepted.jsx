@@ -17,7 +17,7 @@ function UserAccepted(props) {
   };
 
   return (
-    <Layout title="UserAccepted Page">
+    <Layout title="UserAccepted Page" userIsLoggedIn={props.userIsLoggedIn} name={props.name} profilepic={props.profilepic}>
       <h1>Profile page</h1>
       <br /> <br />
       <img className="user-image" src={`${props.user.profilepic}`} />

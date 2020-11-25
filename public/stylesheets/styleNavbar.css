@@ -85,6 +85,10 @@ body{
     height: 10vh;
     min-height: 25px;
     max-height: 40px;
+    border-radius: 25%;
+    background-color: #EFFAFB;
+    padding: 1vh;
+    border: solid #36B8BF 1px;
   }
   #iclogo {
     height: 11vh;
