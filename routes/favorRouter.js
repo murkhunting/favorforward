@@ -10,14 +10,15 @@ const isLoggedIn = require("./../utils/isLoggedIn");
 // //---routes
 favorRouter.get("/favor/create", isLoggedIn, (req, res, next) => {
     let props = {}
+    const location = "add";
     if (req.session.currentUser) {
     const userIsLoggedIn = Boolean(req.session.currentUser)
     const name = req.session.currentUser.name
     const profilepic = req.session.currentUser.profilepic
-    props = { userIsLoggedIn, name , profilepic} 
+    props = { userIsLoggedIn, name , profilepic, location} 
     // console.log("props", props)
     } else {
-      props = {}
+      props = {location}
     } //CL>cl current session user name to greet
   res.render("FavorCreate", props);
 });

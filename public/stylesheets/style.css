@@ -16,13 +16,38 @@ body{
 
 .profile-icon{
     object-fit: cover;
-    height: 7vh;
-    width: 7vh;
+    height: 6vh;
+    width: 6vh;
     border-radius: 25%;
     min-height: 25px;
     
     object-fit: cover;
-    border: solid black 1px;
+    /* border: solid black 1px; */
     /* padding:10px; */
     /* margin:10px; */
+}
+
+.profile-icon-clicked{
+    object-fit: cover;
+    height: 6vh;
+    width: 6vh;
+    border-radius: 25%;
+    min-height: 25px;
+    
+    object-fit: cover;
+    border: solid #36B8BF 1px;
+    /* padding:10px; */
+    /* margin:10px; */
+}
+
+.button-clicked{
+    background-color: white;
+    border-color:  #36B8BF;
+    border-radius: 10%;
+ 
+}
+
+.button-unclicked{
+    background-color: white;
+    border-color:  black;
 }

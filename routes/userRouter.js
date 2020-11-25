@@ -17,14 +17,15 @@ userRouter.get("/", isLoggedIn, (req, res, next) => {
     .populate("favorsProvided")
     .then((user) => {
       let props = {}
+      const location = "created";
       if (req.session.currentUser) {
       const userIsLoggedIn = Boolean(req.session.currentUser)
       const name = req.session.currentUser.name
       const profilepic = req.session.currentUser.profilepic
-      props = { userIsLoggedIn, name , profilepic, user} 
+      props = { userIsLoggedIn, name , profilepic, user, location} 
       // console.log("props", props)
       } else {
-        props = { user}
+        props = { user, location}
       }
       res.render("UserDashboard", props);
     })
@@ -40,14 +41,15 @@ userRouter.get("/accepted", isLoggedIn, (req, res, next) => {
     .populate("favorsProvided")
     .then((user) => {
       let props = {}
+      const location = "created";
       if (req.session.currentUser) {
       const userIsLoggedIn = Boolean(req.session.currentUser)
       const name = req.session.currentUser.name
       const profilepic = req.session.currentUser.profilepic
-      props = { userIsLoggedIn, name , profilepic, user} 
+      props = { userIsLoggedIn, name , profilepic, user, location} 
       // console.log("props", props)
       } else {
-        props = { user}
+        props = { user, location}
       }
       res.render("UserAccepted", props);
     })
@@ -60,7 +62,17 @@ userRouter.get("/edit", isLoggedIn, (req, res, next) => {
   const currentUser = req.session.currentUser._id;
   User.findById(currentUser)
     .then((user) => {
-      const props = { userIsLoggedIn: true, user };
+      let props = {}
+      const location = "created";
+      if (req.session.currentUser) {
+      const userIsLoggedIn = Boolean(req.session.currentUser)
+      const name = req.session.currentUser.name
+      const profilepic = req.session.currentUser.profilepic
+      props = { userIsLoggedIn, name , profilepic, user, location} 
+      // console.log("props", props)
+      } else {
+        props = { user, location}
+      }
       res.render("UserEdit", props);
     })
     .catch((error) => console.log(error));

@@ -3,7 +3,7 @@ const Layout = require("./Layout");
 
 function FavorCreate(props) {
   return (
-    <Layout title="Create Favor Page" userIsLoggedIn={props.userIsLoggedIn} name={props.name} profilepic={props.profilepic}>
+    <Layout title="Create Favor Page" userIsLoggedIn={props.userIsLoggedIn} name={props.name} profilepic={props.profilepic} location={props.location}>
       <h1>Create Favor Page</h1>
       <br />
       <br />
@@ -48,7 +48,7 @@ function FavorCreate(props) {
         } */}
       </form>
 
-      <div id='map' style={{width: "1000px", height: "600px"}}></div>
+      
 
 
       <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.css' rel='stylesheet' />

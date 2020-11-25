@@ -31,9 +31,10 @@ function FavorEdit(props) {
 
         <button type="submit">Edit Favor</button>
       </form>
+      <br/>
 
       <form id="" action={`/favordelete/${props._id}`} method="POST">
-        <button type="submit">DELETE Favor</button>
+        <button type="submit">Delete Favor</button>
       </form>
       </Layout>
   );

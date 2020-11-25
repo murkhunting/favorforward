@@ -17,19 +17,16 @@ function UserDashboard(props) {
   };
 
   return (
-    <Layout title="UserDashboard Page" userIsLoggedIn={props.userIsLoggedIn} name={props.name} profilepic={props.profilepic}>
+    <Layout title="UserDashboard Page" userIsLoggedIn={props.userIsLoggedIn} name={props.name} profilepic={props.profilepic} location={props.location}>
       <h1>Profile page</h1>
       <br /> <br />
       <img className="user-image" src={`${props.user.profilepic}`} />
       <br/>
       <br/>
-      <h3>Name:</h3>
-      <h2>{props.user.name}</h2>
+      <h1>{props.user.name}</h1>
       <br />
-      <h3>Age:</h3>
-      <h2>{props.user.age}</h2>
+      <h2>Age: {props.user.age}</h2>
       <br />
-      <h3>Email:</h3>
       <h2>{props.user.email}</h2>
       <br />
       <a className="navbar-icontitle" href="/auth/logout">
@@ -43,9 +40,9 @@ function UserDashboard(props) {
       <h3>Favors:</h3>
       <br />
       
-      <button type="button">CREATED</button>
+      <button className= "button-clicked" type="button">CREATED</button>
       {/* <button type="button">PENDING</button> */}
-      <a className="" href={"/user/accepted"}><button type="button">ACCEPTED</button></a>
+      <a className="button-unclicked" href={"/user/accepted"}><button type="button">ACCEPTED</button></a>
       <br />
       <br />
       {props.user.favorsCreated.map((favorCreated, i) => {
