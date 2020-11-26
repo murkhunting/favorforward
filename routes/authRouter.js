@@ -13,7 +13,10 @@ const isLoggedIn = require("./../utils/isLoggedIn");
 //---routes
 
 authRouter.get("/signup", function (req, res, next) {
-  res.render("SignUp");
+  let props = {}
+  const location = "login";
+  props = {location}
+  res.render("SignUp", props);
 });
 
 
@@ -52,7 +55,10 @@ authRouter.post("/signup", (req, res, next) => {
 
 
 authRouter.get("/login", (req, res, next) => {
-  res.render("Login");
+  let props = {}
+  const location = "login";
+  props = {location}
+  res.render("Login", props);
 });
 
 authRouter.post("/login", (req, res, next) => {
@@ -91,8 +97,5 @@ authRouter.get('/logout', isLoggedIn, (req, res, next) => {
   })
 });
   
-
-
-
 
 module.exports = authRouter;

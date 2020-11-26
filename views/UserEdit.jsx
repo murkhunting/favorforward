@@ -3,13 +3,13 @@ const Layout = require("./Layout");
 
 function UserEdit(props) {
   return (
-    <Layout title="User Edit Page">
+    <Layout title="User Edit Page" userIsLoggedIn={props.userIsLoggedIn} name={props.name} profilepic={props.profilepic} location={props.location}>
       <h1>User Edit Page</h1>
       <br />
       <br />
       <form
         id="form"
-        action={`/user/edit?user_id=${props.user._id}`}
+        action={"/user/edit"}
         method="POST"
         encType="multipart/form-data"
       >

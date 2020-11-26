@@ -4,23 +4,23 @@ const Card = require("./components/Card");
 
 function Home(props) {
   return (
-    <Layout title="Home Page" userIsLoggedIn={props.userIsLoggedIn} name={props.name}>
+    <Layout title="Home Page" userIsLoggedIn={props.userIsLoggedIn} name={props.name} profilepic={props.profilepic} location={props.location}>
       <h1>Home Page</h1>
-      <br/><br/>
-      {/* <Card text="smaller component example" image="https://i.imgur.com/OH7dtc0.png" /> */}
-      {/* <Card text="second example of component use" image="https://i.imgur.com/dHdzhWn.png" /> */}
+        <br/><br/>
+        {/* <Card text="smaller component example" image="https://i.imgur.com/OH7dtc0.png" /> */}
+        {/* <Card text="second example of component use" image="https://i.imgur.com/dHdzhWn.png" /> */}
 
-      { props.favorList.map( (eachFavor, i)=> {
-          return (
-            <a href={`/favor/${eachFavor.id}`}>
-              <h2>{eachFavor.title}</h2>
-              {/* <favorCard key={i} /> */}
-            </a>
-          )
-        })
-      }
+        { props.favorList.map( (eachFavor, i)=> {
+            return (
+              <a href={`/favor/${eachFavor.id}`}>
+                <h2>{eachFavor.title}</h2>
+                {/* <favorCard key={i} /> */}
+              </a>
+            )
+          })
+        }
 
-      <div id='map' style={{width: "1000px", height: "600px"}}></div>
+        {/* <div id='map' style={{width: "1000px", height: "600px"}}></div> */}
 
 
       <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.css' rel='stylesheet' />

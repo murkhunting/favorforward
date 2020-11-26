@@ -1,9 +1,9 @@
 const React = require("react");
 const Layout = require("./Layout");
 
-function FavorCreate() {
+function FavorCreate(props) {
   return (
-    <Layout title="Create Favor Page">
+    <Layout title="Create Favor Page" userIsLoggedIn={props.userIsLoggedIn} name={props.name} profilepic={props.profilepic} location={props.location}>
       <h1>Create Favor Page</h1>
       <br />
       <br />

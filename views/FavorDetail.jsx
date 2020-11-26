@@ -15,7 +15,7 @@ switch (props.favorDetail.date.getDay()) {
 }
 
   return (
-    <Layout title="Detail Favor Page">
+    <Layout title="Detail Favor Page" userIsLoggedIn={props.userIsLoggedIn} name={props.name} profilepic={props.profilepic}>
       <h1>Detail Favor Page</h1>
       <br /><br />
       <h3>Title: {props.favorDetail.title} </h3>

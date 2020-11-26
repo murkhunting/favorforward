@@ -10,7 +10,17 @@ const zipcodesObj = require("./../utils/zipcode");
 
 // //---routes
 favorRouter.get("/favor/create", isLoggedIn, (req, res, next) => {
-  const props = {}; //CL>cl current session user name to greet
+    let props = {}
+    const location = "add";
+    if (req.session.currentUser) {
+    const userIsLoggedIn = Boolean(req.session.currentUser)
+    const name = req.session.currentUser.name
+    const profilepic = req.session.currentUser.profilepic
+    props = { userIsLoggedIn, name , profilepic, location} 
+    // console.log("props", props)
+    } else {
+      props = {location}
+    } //CL>cl current session user name to greet
   res.render("FavorCreate", props);
 });
 
@@ -52,11 +62,16 @@ favorRouter.get("/favor/:id", (req, res , next) => {
     .findById(favorId)
     .populate("createrUser")
     .then( favorDetail => {
-        
+        let props = {}
+        if (req.session.currentUser) {
         const currentUserId = req.session.currentUser._id
-        const props = {favorDetail, currentUserId}
-        // console.log(favorDetail);
-        // console.log(currentUserId);
+        const userIsLoggedIn = Boolean(req.session.currentUser)
+        const name = req.session.currentUser.name
+        const profilepic = req.session.currentUser.profilepic
+        props = {userIsLoggedIn, name , profilepic, favorDetail, currentUserId}
+        }else{
+        props = {favorDetail, currentUserId}
+        }
         res.render("FavorDetail", props)
     })
     .catch((error) => console.log(error));
@@ -67,8 +82,16 @@ favorRouter.get("/favoredit/:id", isLoggedIn, (req, res, next) => {
     Favor
     .findById(favorId)
     .then( favorDetail => {
-        const props = favorDetail
-        res.render("FavorEdit", favorDetail)
+        let props = {}
+        if (req.session.currentUser) {
+        const userIsLoggedIn = Boolean(req.session.currentUser)
+        const name = req.session.currentUser.name
+        const profilepic = req.session.currentUser.profilepic
+        props = {userIsLoggedIn, name , profilepic, favorDetail}
+        }else{
+        props = {favorDetail}
+        }
+        res.render("FavorEdit", props)
     })
     .catch(error => console.log(error))
 
@@ -150,5 +173,6 @@ favorRouter.post("/favorcancel/:id", (req, res, next) => {
     .catch((err)=>console.log(err))
 
 })
+
 
 module.exports = favorRouter;

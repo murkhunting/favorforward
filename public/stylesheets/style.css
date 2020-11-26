@@ -1,13 +1,26 @@
 @import "styleReset.css";
 @import "styleNavbar.css";
 
+body{ 
+    background-color: #EFFAFB;
+    padding: 100px 0px 0px;
+    font: 16px 'Roboto', sans-serif, Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    margin: 1% auto 10%;
+    width: 100vW;
+    text-align: center ;    
+    text-decoration-line: none;
+  }
+
 .user-image{
     object-fit: cover;
-    height: 250px;
-    width: 250px;
-    border-radius: 50%;
-    border: solid black 1px;
-    padding: 5px
+    height: 60vw;
+    width: 60vw;
+    max-width: 250px;
+    max-height: 250px;
+    border-radius: 25%;
+    border: solid #36B8BF 3px;
+
 }
 
 /* esto viene de mapbox ale  */
@@ -19,3 +32,41 @@
     border-radius: 50%;
     cursor: pointer;
   }
+
+.profile-icon{
+    object-fit: cover;
+    height: 6vh;
+    width: 6vh;
+    border-radius: 25%;
+    min-height: 25px;
+    
+    object-fit: cover;
+    /* border: solid black 1px; */
+    /* padding:10px; */
+    /* margin:10px; */
+}
+
+.profile-icon-clicked{
+    object-fit: cover;
+    height: 6vh;
+    width: 6vh;
+    border-radius: 25%;
+    min-height: 25px;
+    
+    object-fit: cover;
+    border: solid #36B8BF 1px;
+    /* padding:10px; */
+    /* margin:10px; */
+}
+
+.button-clicked{
+    background-color: white;
+    border-color:  #36B8BF;
+    border-radius: 10%;
+ 
+}
+
+.button-unclicked{
+    background-color: white;
+    border-color:  black;
+}

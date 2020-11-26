@@ -61,19 +61,21 @@ app.use("/", favorRouter);
 
 /* GET home page. */
 app.get("/", (req, res, next) => {
-  // const x=window.location.href
-// console.log("object", x)
+  
   Favor
     .find()
     .then(favorList => {
       let props = {}
+      const location = "map";
       if (req.session.currentUser) {
+      
       const userIsLoggedIn = Boolean(req.session.currentUser)
       const name = req.session.currentUser.name
-      props = { userIsLoggedIn, name , favorList} 
+      const profilepic = req.session.currentUser.profilepic
+      props = { userIsLoggedIn, name , profilepic, favorList, location} 
       // console.log("props", props)
       } else {
-        props = { favorList}
+        props = { favorList, location}
       }
       res.render("Home", props);
     })
@@ -82,10 +84,18 @@ app.get("/", (req, res, next) => {
 });
 
 app.get("/info", (req, res, next) => {
-
-  res.render("Info");
+  let props = {}
+  if (req.session.currentUser) {
+  const userIsLoggedIn = Boolean(req.session.currentUser)
+  const name = req.session.currentUser.name
+  const profilepic = req.session.currentUser.profilepic
+  props = { userIsLoggedIn, name , profilepic} 
+  // console.log("props", props)
+  } else {
+    props = {}
+  }
+  res.render("Info", props);
 });
-
 
 
 module.exports = app;

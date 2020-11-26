@@ -1,7 +1,7 @@
 const React = require("react");
 function Layout(props) {
   // pass on props isUserLoggedIn, name
-  const goBack = () => window.history.back();
+  
   return (
     <html lang="en">
       <head>
@@ -18,35 +18,20 @@ function Layout(props) {
           {/* top navbar */}
           <navtop  className="navbar-top">
             <div id="btn-back">
-              <a className="navbar-icontitle" onClick={goBack} >
-                <img className="navbar-icon btnback" src="./../images/icon-back.png" />
+              <a className="navbar-icontitle" href=""  >
+                <img className="navbar-icon" src="./../icons/back.png" />
               </a>
             </div>
-            
-            { props.userIsLoggedIn 
-              ? <>
-                  <div>
-                    <p className="logoutxt navbar-title">{props.name}, you're logged in </p>
-                  </div>
-                  {/* <div>
-                    <a  href="/auth/logout">
-                      <p className="logoutxt navbar-title">Log out</p>
-                    </a>
-                  </div> */}
-                  <div id="logo">
-                    <a className="navbar-icontitle" href="/">
-                      <img id="iclogo" className="navbar-icon" src="./../images/icon-logo.png" />
-                    </a>
-                  </div>
-                </>
-              : <>
-                  <div id="logo">
-                    <a className="navbar-icontitle" href="/">
-                      <img id="iclogo" className="navbar-icon" src="./../images/icon-logo.png" />
-                    </a>
-                  </div>
-                </>
-            }
+            {/* <div id="logo">
+              <a className="navbar-icontitle" href="/">
+                <img id="iclogo" src="./../icons/logo+nombre.png" />
+              </a>
+            </div> */}
+            <div id="logo">
+              <a className="navbar-icontitle" href="/info">
+                <img  className="navbar-icon" src="./../icons/info.png" />
+              </a>
+            </div>    
           </navtop>
           {/* END top navbar */}
 
@@ -58,8 +43,22 @@ function Layout(props) {
                 <li className="nav-item">
                   <div className="navbar-texticon">
                     <a className="navbar-icontitle" href="/">
-                        <img className="navbar-icon" src="./../../images/icon-home.png"/>
-                      <p className="navbar-title" >FavorMap</p>
+                        {(props.location == "map") ? (
+                        <img className="navbar-icon-clicked" src="./../../icons/map.png"/>
+                        ) :(
+                        <img className="navbar-icon" src="./../../icons/map.png"/>
+                        )}
+                    </a>
+                  </div>
+                </li>
+                <li className="nav-item">
+                  <div className="navbar-texticon">
+                      <a className="navbar-icontitle" href="/">
+                      {(props.location == "search") ? (
+                        <img className="navbar-icon-clicked" src="./../icons/search.png" />
+                        ) :(
+                          <img className="navbar-icon" src="./../icons/search.png" />
+                        )}   
                     </a>
                   </div>
                 </li>
@@ -67,39 +66,27 @@ function Layout(props) {
                 <li className="nav-item">
                   <div className="navbar-texticon">
                       <a className="navbar-icontitle" href="/favor/create">
-                      <img className="navbar-icon" src="./../images/icon-calendar.png" />
-                        <p className="navbar-title">+Favor</p>
+                      {(props.location == "add") ? (
+                          <img className="navbar-icon-clicked" src="./../icons/add.png" />
+                        ) :(
+                          <img className="navbar-icon" src="./../icons/add.png" />
+                        )}
+                      
+                        
                     </a>
                   </div>
                 </li>
-
                 <li className="nav-item">
                   <div className="navbar-texticon">
-                      <a className="navbar-icontitle" href="/info">
-                      <img className="navbar-icon" src="./../images/icon-info.png"/>
-                      <p className="navbar-title">Info</p>
+                    <a className="navbar-icontitle" href="/user/inbox">
+                      {(props.location == "chat") ? (
+                          <img className="navbar-icon-clicked" src="./../icons/chat.png"  />
+                        ) :(
+                          <img className="navbar-icon" src="./../icons/chat.png"  />
+                        )}
+                      
+                        
                     </a>
-                  </div>
-                </li>
-
-                <li className="nav-item">
-                  <div className="navbar-texticon">
-                  {props.userIsLoggedIn ? (
-                      <a className="navbar-icontitle" href="/auth/logout">
-                        <img className="navbar-icon" src="./../images/icon-user.png" />
-                        <p className="navbar-title">Log Out</p>
-                      </a>
-                    ) : (
-                      <a className="navbar-icontitle" href="/auth/login">
-                        <img className="navbar-icon" src="./../images/icon-user.png" />
-                        <p className="navbar-title">User</p>
-                      </a>
-                    )}
-
-                    {/* <a className="navbar-icontitle" href="/auth/login">
-                      <img className="navbar-icon" src="./../images/icon-user.png" />
-                      <p className="navbar-title">Login</p>
-                    </a> */}
                   </div>
                 </li>
 
@@ -107,13 +94,23 @@ function Layout(props) {
                   <div className="navbar-texticon">
                     {props.userIsLoggedIn ? (
                       <a className="navbar-icontitle" href="/user">
-                        <img className="navbar-icon" src="./../images/icon-user.png" />
-                        <p className="navbar-title">Dashboard</p>
+                        {(props.location == "created") ? (
+                          <img className="profile-icon-clicked" src= {`${props.profilepic}`} />
+                        ) :(
+                          <img className="profile-icon" src= {`${props.profilepic}`} />
+                        )}
+                        
+                        
                       </a>
                     ) : (
-                      <a className="navbar-icontitle" href="/auth/signup">
-                        <img className="navbar-icon" src="./../images/icon-user.png" />
-                        <p className="navbar-title">User</p>
+                      <a className="navbar-icontitle" href="/auth/login">
+                        {(props.location == "login") ? (
+                          <img className="navbar-icon-clicked" src="./../icons/user.png" />
+                        ) :(
+                          <img className="navbar-icon" src="./../icons/user.png" />
+                        )}
+                        
+                        
                       </a>
                     )}
                   </div>
@@ -124,6 +121,8 @@ function Layout(props) {
           {/* END bottom navbar */}
         </header>
         {props.children}
+       
+        
       </body>
     </html>
   );
