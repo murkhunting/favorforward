@@ -21,6 +21,9 @@ function Layout(props) {
               <a className="navbar-icontitle" href=""  >
                 <img className="navbar-icon" src="./../icons/back.png" />
               </a>
+              <a className="navbar-icontitle" href=""  >
+                <img className="navbar-icon" src="./../icons/coin.png" />
+              </a>
             </div>
             {/* <div id="logo">
               <a className="navbar-icontitle" href="/">
@@ -30,6 +33,9 @@ function Layout(props) {
             <div id="logo">
               <a className="navbar-icontitle" href="/info">
                 <img  className="navbar-icon" src="./../icons/info.png" />
+              </a>
+              <a className="navbar-icontitle" href="/auth/logout">
+                <img className="navbar-icon" src="./../icons/logout.png" />
               </a>
             </div>    
           </navtop>

@@ -2,7 +2,7 @@
     
     background-image: url(./../icons/headerv2.png);
     background-repeat: no-repeat;
-    background-size: 110vh auto;
+    background-size: 2500px auto;
     background-position-x: center;
     position: fixed; /*cambiar en res 500 y 1000. y ponerla hidden en 1000*/
     width: 100%;

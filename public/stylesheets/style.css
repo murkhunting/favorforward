@@ -12,6 +12,16 @@ body{
     text-decoration-line: none;
   }
 
+h2{
+    text-decoration: none;
+    background-color: white;
+    border-radius: 8px;
+    border: solid #a0a0a0 1px;
+    padding: 8px;
+    margin: 8px;
+    
+}
+
 .user-image{
     object-fit: cover;
     height: 60vw;
@@ -49,14 +59,24 @@ body{
     /* margin:10px; */
 }
 
+
+.aline{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
+    align-items: space-between;
+}
 .button-clicked{
     background-color: white;
-    border-color:  #36B8BF;
-    border-radius: 10%;
- 
+    border: solid #36B8BF 2px;
+    border-radius: 8px;
+    padding: 8px;
 }
 
 .button-unclicked{
-    background-color: white;
-    border-color:  black;
+    background-color: #EFFAFB;
+    border: solid rgb(112, 112, 112) 2px;
+    border-radius: 8px;
+    padding: 8px;
 }
