@@ -35,9 +35,12 @@ switch (props.favorDetail.date.getDay()) {
       <h3>Description: {props.favorDetail.description}</h3>
       <br />
 
-      <h3>Adress:</h3> {/* <h3>{props.location}</h3> */}
+      <h3>Adress:{props.favorDetail.address}</h3> 
       <br />
 
+      <h3>Zip code:{props.favorDetail.zipcode}</h3> 
+
+      
       {(props.favorDetail.createrUser._id == props.currentUserId) ? (
         <a className="" href={`/favoredit/${props.favorDetail._id}`}>
           <img className="navbar-icon" src="./../images/icon-logo.png" />

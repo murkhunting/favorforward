@@ -12,15 +12,15 @@ function Home(props) {
 
         { props.favorList.map( (eachFavor, i)=> {
             return (
-              <a href={`/favor/${eachFavor.id}`}>
-                <h2>{eachFavor.title}</h2>
+              <a key={i} href={`/favor/${eachFavor.id}`}>
+                <h2>{eachFavor.title}  -------Lat: {eachFavor.location.coordinates[0]}, {eachFavor.location.coordinates[1]}</h2>
                 {/* <favorCard key={i} /> */}
               </a>
             )
           })
         }
-
-        {/* <div id='map' style={{width: "1000px", height: "600px"}}></div> */}
+  
+        <div id='map' style={{  width: "800px", height: "600px"}}></div>
 
 
       <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.css' rel='stylesheet' />

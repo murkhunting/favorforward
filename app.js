@@ -13,6 +13,7 @@ const MongoStore = require("connect-mongo")(session);
 const authRouter = require("./routes/authRouter");
 const userRouter = require("./routes/userRouter");
 const favorRouter = require("./routes/favorRouter");
+const apiRouter = require("./routes/apiRouter");
 const Favor = require("./models/NewFavor.model");
 
 const app = express();
@@ -56,15 +57,20 @@ app.use(
 
 // ROUTES
 app.use("/auth", authRouter);
+app.use("/api", apiRouter);
 app.use("/user", userRouter);
 app.use("/", favorRouter);
 
 /* GET home page. */
 app.get("/", (req, res, next) => {
   
+
+
+
   Favor
     .find()
     .then(favorList => {
+
       let props = {}
       const location = "map";
       if (req.session.currentUser) {

@@ -1,38 +1,40 @@
 @import "styleReset.css";
 @import "styleNavbar.css";
 
-body{ 
+ body{ 
     background-color: #EFFAFB;
     padding: 100px 0px 0px;
     font: 16px 'Roboto', sans-serif, Helvetica, Arial, sans-serif;
     font-weight: 400;
-    margin: 1% auto 10%;
+    margin: 1% 0px 10%;
     width: 100vW;
     text-align: center ;    
     text-decoration-line: none;
   }
-
-.user-image{
+#map {
+  text-align: left;
+}
+ .user-image{
     object-fit: cover;
     height: 60vw;
     width: 60vw;
     max-width: 250px;
     max-height: 250px;
     border-radius: 25%;
-    border: solid #36B8BF 3px;
+    border: solid #36B8BF 3px; 
+ }
 
-}
 
 /* esto viene de mapbox ale  */
-.marker {
+/* .marker {
     background-image: url('./../images/usuario.png');
     background-size: cover;
     width: 50px;
     height: 50px;
     border-radius: 50%;
     cursor: pointer;
-  }
-
+  } */
+ 
 .profile-icon{
     object-fit: cover;
     height: 6vh;
@@ -40,13 +42,13 @@ body{
     border-radius: 25%;
     min-height: 25px;
     
-    object-fit: cover;
+    object-fit: cover; 
     /* border: solid black 1px; */
     /* padding:10px; */
     /* margin:10px; */
-}
+} 
 
-.profile-icon-clicked{
+ .profile-icon-clicked{
     object-fit: cover;
     height: 6vh;
     width: 6vh;
@@ -54,12 +56,12 @@ body{
     min-height: 25px;
     
     object-fit: cover;
-    border: solid #36B8BF 1px;
+    border: solid #36B8BF 1px; 
     /* padding:10px; */
     /* margin:10px; */
-}
+ } 
 
-.button-clicked{
+ .button-clicked{
     background-color: white;
     border-color:  #36B8BF;
     border-radius: 10%;
@@ -69,4 +71,11 @@ body{
 .button-unclicked{
     background-color: white;
     border-color:  black;
-}
+} 
+
+/* 
+ .mapboxgl-canvas {
+  position: static;
+  width: 800px;
+  height: 600px;
+}  */

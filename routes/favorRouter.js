@@ -26,19 +26,13 @@ favorRouter.get("/favor/create", isLoggedIn, (req, res, next) => {
 
 favorRouter.post("/favor/create", (req, res, next) => {
 
-    const {title, date, timeStart, timeDuration, description, tags, address} = req.body;
+    const {title, date, timeStart, timeDuration, description, tags, address } = req.body;
     const createrUser = req.session.currentUser._id
-    const zipNum = req.body.zipNum
-    const location = { type: 'Point', coordinates: zipcodesObj[zipNum] }
+    const zipcode = req.body.zipNum
+    const location = { type: 'Point', coordinates: zipcodesObj[zipcode] }
 
-    // console.log("zipNum------------------", zipNum)
-    // console.log("zipNum.valueOf()--------", zipNum.valueOf())
-    // console.log("zipcode------------------", zipcode[zipNum.valueOf()])
-    // console.log("zipcode------------------", zipcode[zipNum])
-    // console.log("zipcode------------------", location)
-    
     Favor
-    .create ( {createrUser, title, date, timeStart, timeDuration, description, tags, address, location: location})
+    .create ( {createrUser, title, date, timeStart, timeDuration, description, tags, address, zipcode, location: location})
     // .create ( {createrUser})
     .then ((createdFavor) => {
         console.log("createdFavor",createdFavor)
@@ -77,11 +71,15 @@ favorRouter.get("/favor/:id", (req, res , next) => {
     .catch((error) => console.log(error));
 });
 
+
+
 favorRouter.get("/favoredit/:id", isLoggedIn, (req, res, next) => {
     const favorId = req.params.id;
+    
     Favor
     .findById(favorId)
     .then( favorDetail => {
+        console.log("favorDetail", favorDetail)
         let props = {}
         if (req.session.currentUser) {
         const userIsLoggedIn = Boolean(req.session.currentUser)
@@ -99,16 +97,15 @@ favorRouter.get("/favoredit/:id", isLoggedIn, (req, res, next) => {
 
 
 favorRouter.post("/favoredit/:id", isLoggedIn, (req, res, next) => {
-
-console.log("req.params.id", req.params.id)
- 
-    console.log("req.body", req.body)
-    const {title, date, timeStart, timeDuration, description, tags, location} = req.body;
+    
+    const {title, date, timeStart, timeDuration, description, tags, address } = req.body;
+    const zipcode = req.body.zipNum
+    const location = { type: 'Point', coordinates: zipcodesObj[zipcode] }
 
     Favor
     .findByIdAndUpdate ( 
         req.params.id, 
-        {title, date, timeStart, timeDuration, description, tags, location},
+        {title, date, timeStart, timeDuration, description, tags, address, zipcode, location: location},
         {new:true}
     )
     .then ((editedFavor) => {
@@ -120,7 +117,6 @@ console.log("req.params.id", req.params.id)
        
     })
 })
-
 
 favorRouter.post("/favordelete/:id", isLoggedIn, (req, res, next) => {
     const createrUserId = req.session.currentUser._id
