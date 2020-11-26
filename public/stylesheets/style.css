@@ -12,6 +12,11 @@ body{
     text-decoration-line: none;
   }
 
+a{
+    text-decoration: none;
+    color:black;
+}
+
 h2{
     text-decoration: none;
     background-color: white;
@@ -79,4 +84,11 @@ h2{
     border: solid rgb(112, 112, 112) 2px;
     border-radius: 8px;
     padding: 8px;
+}
+
+.settings-icon{
+    height: 5vh;
+    min-height: 25px;
+    max-height: 40px;
+    margin-left: -4.2vh;
 }

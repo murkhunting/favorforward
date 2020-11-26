@@ -22,7 +22,7 @@ function UserAccepted(props) {
       <br /> <br />
       <img className="user-image" src={`${props.user.profilepic}`} />
       <a className="" href={"/user/edit"}>
-        <img className="navbar-icon" src="./../icons/setting.png" />
+        <img className="settings-icon" src="./../icons/setting.png" />
       </a>
       <br/>
       <br/>

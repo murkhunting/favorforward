@@ -1,8 +1,7 @@
   .navbar-top{
     
     background-image: url(./../icons/headerv2.png);
-    background-repeat: no-repeat;
-    background-size: 2500px auto;
+    background-size: cover;
     background-position-x: center;
     position: fixed; /*cambiar en res 500 y 1000. y ponerla hidden en 1000*/
     width: 100%;
@@ -22,6 +21,7 @@
     bottom: 0;
     overflow: hidden;
     left: 0px;
+    border-top: solid rgb(163, 163, 163) 0.3px;
   }
     
   .navbar-bottom ul {
