@@ -4,7 +4,7 @@ const Layout = require("./Layout");
 function FavorDetail(props) {
 
 let day = ""
-switch (props.date.getDay()) {
+switch (props.favorDetail.date.getDay()) {
   case 0: day = "Sun"; break;
   case 1: day = "Mon"; break;
   case 2: day = "Tue"; break;
@@ -18,41 +18,47 @@ switch (props.date.getDay()) {
     <Layout title="Detail Favor Page">
       <h1>Detail Favor Page</h1>
       <br /><br />
-        <h3>Title: {props.title} </h3>
-        <br />
+      <h3>Title: {props.favorDetail.title} </h3>
+      <br />
+      <h3>Name: {props.favorDetail.createrUser.name} </h3>
+      <br />
 
-        <h3>Date: {day} {props.date.getDate()}/{props.date.getMonth()}</h3>
-        <br />
+      <h3>Date: {day} {props.favorDetail.date.getDate()}/{props.favorDetail.date.getMonth()}</h3>
+      <br />
 
-        <h3>Starting Time: {props.timeStart}</h3>
-        <br />
+      <h3>Starting Time: {props.favorDetail.timeStart}</h3>
+      <br />
 
-        <h3>Duration Time: {props.timeDuration}</h3>
-        <br />
+      <h3>Duration Time: {props.favorDetailtimeDuration}</h3>
+      <br />
 
-        <h3>Description: {props.description}</h3>
-        <br />
+      <h3>Description: {props.favorDetail.description}</h3>
+      <br />
 
-        <h3>Adress:</h3> {/* <h3>{props.location}</h3> */}
-        <br />
-      
-        <a className="" href={`/favoredit/${props._id}`}>
+      <h3>Adress:</h3> {/* <h3>{props.location}</h3> */}
+      <br />
+
+      {(props.favorDetail.createrUser._id == props.currentUserId) ? (
+        <a className="" href={`/favoredit/${props.favorDetail._id}`}>
           <img className="navbar-icon" src="./../images/icon-logo.png" />
           <p className="navbar-title">Edit Favor</p>
         </a>
-        <br />
+      ) : (
+        props.favorDetail.status == "Favor Created" && (
+        <form id="" action={`/favordo/${props.favorDetail._id}`} method="POST">
+          <button type="submit">DO Favor</button>
+        </form>)
+        )}
+      
+      {props.favorDetail.status == "Favor Accepted" && (
+        <form id="" action={`/favorcancel/${props.favorDetail._id}`} method="POST">
+        <button type="submit">Cancel Favor</button>
+      </form>)}
 
-        <form id="" action={`/favordo/${props._id}`} method="POST">
-         <button type="submit">DO Favor</button>
-        </form>
-        <br />
-
-        <form id="" action={`/favorcancel/${props._id}`} method="POST">
-         <button type="submit">Something came up, CAN'T do favor</button>
-        </form>
-
-      </Layout>
+    </Layout>
   );
 }
 
 module.exports = FavorDetail;
+
+

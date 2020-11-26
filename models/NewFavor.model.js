@@ -8,7 +8,7 @@ const favorSchema = new Schema({
     date: { type: Date,  required: true},
     timeStart:  { type: String, required: true },
     timeDuration:  { type: String, required: true },
-    description: { type:String, required: false },
+    description: { type:String, required: true },
     tags: { type:String, default: ""},   //CL- make a function that takes the string and converts to arr of words
     comments: [{user: { type: Schema.Types.ObjectId, ref: 'User' }, comment: String}], 
     status: { type: String, enum: [ "Favor Created", "Favor Accepted", "Favor Finished"], default: "Favor Created"},
@@ -18,8 +18,12 @@ const favorSchema = new Schema({
         ProviderToCreaterScore: { type: Number, enum: [1, 2, 3, 4, 5] }, //, required: true},
         ProviderToCreaterComment: { type: String } //, required: true},
     },
-    location: { type: { type: String }, coordinates: [Number] }
+    address: { type:String },
+    location: { type: { type: String, default: "Point"}, coordinates: {type:Array, default:[41.3869474,2.1695633]}}
+    // geometry: { type: {type:String, default:"Point"}, coordinates: [Number] }
+    // geometry: { { type: { type: String, default:"Point"}} }
 },
+
 { 
     timestamps: {createdAt: 'create_at', updatedAt: 'updated_at' }
 }

@@ -1,9 +1,7 @@
 const React = require("react");
-
-function Layout(props) { // pass on props isUserLoggedIn, name
-  
-  const goBack = () => window.history.back()
-
+function Layout(props) {
+  // pass on props isUserLoggedIn, name
+  const goBack = () => window.history.back();
   return (
     <html lang="en">
       <head>
@@ -15,7 +13,6 @@ function Layout(props) { // pass on props isUserLoggedIn, name
         <title> {props.title ? props.title : "My App"} </title>
         <link rel="stylesheet" href="./../stylesheets/style.css" />
       </head>
-
       <body>
         <header>
           {/* top navbar */}
@@ -109,7 +106,7 @@ function Layout(props) { // pass on props isUserLoggedIn, name
                 <li className="nav-item">
                   <div className="navbar-texticon">
                     {props.userIsLoggedIn ? (
-                      <a className="navbar-icontitle" href="/user/dashboard">
+                      <a className="navbar-icontitle" href="/user">
                         <img className="navbar-icon" src="./../images/icon-user.png" />
                         <p className="navbar-title">Dashboard</p>
                       </a>
@@ -126,12 +123,9 @@ function Layout(props) { // pass on props isUserLoggedIn, name
           </nav>
           {/* END bottom navbar */}
         </header>
-
         {props.children}
-       
       </body>
     </html>
   );
 }
-
 module.exports = Layout;
