@@ -26,16 +26,14 @@ const main = () => {
   }
 
   axios
-    .get("http://localhost:3000/api/favors")
+    // .get("http://localhost:3000/api/favors")
+    .get("https://favorforward.herokuapp.com/api/favors")
     .then((result) => {
-      console.log("---------------------------", result)
       result.data.forEach((favor) => {
-        new mapboxgl.Marker()
-
-        // console.log("The favor map for Each is---------->", favor)  
-        .setPopup(new mapboxgl.Popup().setHTML(`<a class="maplink" href="http://localhost:3000/favor/${favor._id}">${favor.title}</a>`))
+        new mapboxgl.Marker() 
+        // .setPopup(new mapboxgl.Popup().setHTML(`<a class="maplink" href="http://localhost:3000/favor/${favor._id}">${favor.title}</a>`))
+        .setPopup(new mapboxgl.Popup().setHTML(`<a class="maplink" href="https://favorforward.herokuapp.com/favor/${favor._id}">${favor.title}</a>`))
         .setLngLat(favor.location.coordinates.reverse())
-          // .setLngLat(favor.location.coordinates)
         .addTo(map);
           
       });

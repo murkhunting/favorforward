@@ -17,48 +17,47 @@ function UserAccepted(props) {
   };
 
   return (
-    <Layout title="UserAccepted Page" userIsLoggedIn={props.userIsLoggedIn} name={props.name} profilepic={props.profilepic} location={props.location}>
-      <h1>Profile page</h1>
-      <br /> <br />
-      <img className="user-image" src={`${props.user.profilepic}`} />
-      <br/>
-      <br/>
-
-      <h1>{props.user.name}</h1>
-      <br />
-      <h2>Age: {props.user.age}</h2>
-      <br />
-      <h2>{props.user.email}</h2>
-      <br />
-      <a className="navbar-icontitle" href="/auth/logout">
-        <img className="navbar-icon" src="./../icons/logout.png" />
-      </a>
-      <a className="" href={"/user/edit"}>
-        <img className="navbar-icon" src="./../icons/setting.png" />
-      </a>
+    <Layout title="UserAccepted Page" userIsLoggedIn={props.userIsLoggedIn} name={props.name} profilepic={props.user.profilepic} location={props.location}>
+      <section >
+        <h2>{props.user.name.toUpperCase()}</h2>
+        <br />
+        <img className="user-image" src={`${props.user.profilepic}`} />
+        <a className="" href={"/user/edit"}>
+          <img className="settings-icon" src="./../icons/setting.png" />
+        </a>
+        <br/>
+        <br/>
+        <h1>Age: {props.user.age}</h1>
+        <br />
+        <h1>{props.user.email}</h1>
+      </section>
       <br />
       <br/>
-      <h3>Favors:</h3>
-      <br />
-      
-      <a className="button-unclicked" href={"/user"}><button type="button">CREATED</button></a>
-      {/* <button type="button">PENDING</button> */}
-      <button className="button-clicked" type="button">ACCEPTED</button>
-      <br />
-      <br />
-      {props.user.favorsProvided.map((favorAccepted, i) => {
-        return (
-          <a href={`/favor/${favorAccepted.id}`}>
-            <h2>
-              {favorAccepted.title.toUpperCase()} - Date:{" "}
-              {getDayFavor(favorAccepted.date.getDay())}{" "}
-              {favorAccepted.date.getDate()}/{favorAccepted.date.getMonth()}
-            </h2>
-            <br />
-            <favorCard key={i} />
+      <section>
+      <div className="aline">
+          <a href={"/user"}>
+            <h3 className="button-unclicked">FAVORS CREATED</h3>
           </a>
-        );
-      })}
+          <h3 className="button-clicked">FAVORS ACCEPTED</h3>
+          {/* <button type="button">PENDING</button> */}
+        </div>
+        {props.user.favorsProvided.map((favorAccepted, i) => {
+          return (
+            <a href={`/favor/${favorAccepted.id}`}>
+              <h2>
+                {favorAccepted.title.toUpperCase()} - {" "}
+                {getDayFavor(favorAccepted.date.getDay())}{" "}
+                {favorAccepted.date.getDate()}/{favorAccepted.date.getMonth()}
+              </h2>
+              <favorCard key={i} />
+            </a>
+          );
+        })}
+      </section>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
     </Layout>
   );
 }

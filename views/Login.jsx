@@ -4,27 +4,25 @@ const Layout = require("./Layout");
 function Login(props) {
   return (
     <Layout title="Log in Page" location={props.location}>
-      <h1>Log In</h1>
+      <section>
       <form id="form" action="/auth/login" method="POST">
-        <label>Email</label>
-        <br />
         <input type="text" name="email" placeholder="Enter your email" />
 
-        <label>Password</label>
-        <br />
-        <input type="password" name="password" />
-
-        <button type="submit">Login</button>
+        <input type="password" name="password"  placeholder="*****" />
+        <br/> <br/>
+        <button className="formbutton" type="submit">LOGIN</button>
       </form>
 
       {props.errorMessage ? (
         <div className="error-message"> {props.errorMessage}</div>
       ) : null}
 
-        <br />
-      <p className="account-message">
-        <a href="/auth/signup">Sign up!</a> if you don't have an account yet
-      </p>
+        <br /><br/>
+    
+      <a clasName="signup" href="/auth/signup">if you don't have an account yet Sign up!</a>
+      <br/>
+      <br/>
+      </section>
     </Layout>
   );
 }

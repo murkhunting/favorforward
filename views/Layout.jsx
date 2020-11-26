@@ -21,6 +21,9 @@ function Layout(props) {
               <a className="navbar-icontitle" href=""  >
                 <img className="navbar-icon" src="./../icons/back.png" />
               </a>
+              <a className="navbar-icontitle" href=""  >
+                <img className="navbar-icon" src="./../icons/coin.png" />
+              </a>
             </div>
             {/* <div id="logo">
               <a className="navbar-icontitle" href="/">
@@ -30,6 +33,9 @@ function Layout(props) {
             <div id="logo">
               <a className="navbar-icontitle" href="/info">
                 <img  className="navbar-icon" src="./../icons/info.png" />
+              </a>
+              <a className="navbar-icontitle" href="/auth/logout">
+                <img className="navbar-icon" src="./../icons/logout.png" />
               </a>
             </div>    
           </navtop>
@@ -53,7 +59,7 @@ function Layout(props) {
                 </li>
                 <li className="nav-item">
                   <div className="navbar-texticon">
-                      <a className="navbar-icontitle" href="/">
+                      <a className="navbar-icontitle" href="/favorsearch">
                       {(props.location == "search") ? (
                         <img className="navbar-icon-clicked" src="./../icons/search.png" />
                         ) :(

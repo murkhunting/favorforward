@@ -3,16 +3,46 @@
 
  body{ 
     background-color: #EFFAFB;
-    /* padding: 100px 0px 0px; */
+    padding: 100px 0px 0px;
     font: 16px 'Roboto', sans-serif, Helvetica, Arial, sans-serif;
     font-weight: 400;
-    /* margin: 1% 0px 10%; */
     width: 100vW;
-    text-align: center ;    
-    text-decoration-line: none;
-  }
- 
- .user-image{
+    text-align: center ;  
+}
+
+a{
+    text-decoration: none;
+    color:black;
+    
+}
+
+section{
+    background-color: white;
+    padding: 15px;
+    margin-left: 3%;
+    margin-right: 3%;
+    border-radius: 8px;
+    border: solid #d6d6d6 1px;
+    
+}
+h2{
+    text-decoration: none;
+    background-color: #EFFAFB;
+    border-radius: 8px;
+    border: solid #a0a0a0 1px;
+    padding: 8px;
+    margin: 8px;
+}
+input{
+    background-color: white;
+    border-radius: 8px;
+    border: solid #a0a0a0 1px;
+    margin: 8px;
+    height: 30px;
+    width: 230px;
+    text-align: center;
+}
+.user-image{
     object-fit: cover;
     height: 60vw;
     width: 60vw;
@@ -21,7 +51,6 @@
     border-radius: 25%;
     border: solid #36B8BF 3px; 
  }
-
 
 /* esto viene de mapbox ale  */
 .marker {
@@ -59,28 +88,81 @@
     /* margin:10px; */
  } 
 
- .button-clicked{
+.aline{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
+    align-items: space-between;
+}
+.button-clicked{
+    background-color: #EFFAFB; 
+    border:solid #36B8BF 1px;
+    /* border-radius: 8px; */
+    padding: 8px;
+}
+.button-unclicked{
+    background-color:white;
+    border: solid rgb(112, 112, 112) 1px;
+    /* border-radius: 8px; */
+    padding: 8px;
+}
+.settings-icon{
+    height: 5vh;
+    min-height: 25px;
+    max-height: 40px;
+    margin-left: -4.2vh;
+}
+.search-icon{
     background-color: white;
-    border-color:  #36B8BF;
-    border-radius: 10%;
- 
+    height: 30px;
+    border: solid rgb(112, 112, 112) 1px;
+    border-radius: 5px;
+    padding: 0.3vh;
+}
+.search-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.search-bar{
+    height: 30px;
+    width: 230px;
+}
+.trash{
+    background-color: white;
+    border: none;
+}
+/* button{
+    height: 30px;
+    width: 150px;
+    background-color: white;
+    border: solid rgb(112, 112, 112) 1px;
+} */
+.formbutton{
+    height: 30px;
+    width: 150px;
+    background-color: white;
+    border: solid rgb(112, 112, 112) 1px;
+}
+.imageselect{
+    background-color: transparent;
+    border-radius: 0;
+    border: none;
+    margin: 8px;
+    height: 30px;
+    width: 230px;
+}
+.signup{
+    border: solid rgb(112, 112, 112) 1px;
 }
 
-.button-unclicked{
-    background-color: white;
-    border-color:  black;
-} 
-
-
-/* .mapframe{
-text-align: center;
-
-} */
 #map {
   text-align: left;
   z-index: 0;
-  height: 92vh;
+  height: 93vh;
   width: 100vw;
+  margin-top: -100px;
 
  /* position: relative; */
  /* position: static; */

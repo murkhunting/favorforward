@@ -4,45 +4,30 @@ const Layout = require("./Layout");
 function FavorEdit(props) {
   return (
     <Layout title="Edit Favor Page" userIsLoggedIn={props.userIsLoggedIn} name={props.name} profilepic={props.profilepic}>
-      <h1>Edit Favor Page</h1>
-      <br /><br />
-      <form id="" action={`/favoredit/${props.favorDetail._id}`} method="POST">
-        <label>Title:  </label>
-        <input type="text" name="title" defaultValue={props.favorDetail.title} />
+      <section>
+      <h2>EDIT FAVOR</h2>
+      <form id="" action={`/favoredit/${props._id}`} method="POST">
+        
+        <input type="text" name="title" placeholder="title" defaultValue={props.favorDetail.title} />
+        <input type="text" name="timeStart" placeholder="timeStart" defaultValue={`at ${props.favorDetail.timeStart}`} />
+        <input type="text" name="timeDuration" placeholder="timeDuration" defaultValue={`for ${props.favorDetail.timeDuration}`}  />
+        <input type="text" name="description" placeholder="description" defaultValue={`# ${props.favorDetail.description}`} />
+        <input type="text" name="tags" placeholder="tags" defaultValue={props.tags}  />
+        <input type="date" name="date" placeholder="date" defaultValue={props.favorDetail.date} required/>
+        <input type="text" name="address" placeholder="address" defaultValue={props.favorDetail.address} />
+        <input type="text" name="zipNum" placeholder="zipNum" defaultValue={props.favorDetail.zipcode} />
         <br /><br />
-        <label>Date:  </label>
-        <input type="date" name="date" defaultValue={props.favorDetail.date} required/>
-        <br /><br />
-        <label>Starting Time:  </label>
-        <input type="text" name="timeStart" defaultValue={props.favorDetail.timeStart} />
-        <br /><br />
-        <label>Duration Time:  </label>
-        <input type="text" name="timeDuration" defaultValue={props.favorDetail.timeDuration}  />
-        <br /><br />
-        <label>Description:  </label>
-        <input type="text" name="description" defaultValue={props.favorDetail.description} />
-        <br /><br />
-        <label>Tags:  </label>
-        <input type="text" name="tags" defaultValue={props.favorDetail.tags}  />
-        <br /><br />
-        <label>Adress: </label>
-        <input type="text" name="address" defaultValue={props.favorDetail.address} />
-        <br /><br />
-        <label>Zipcode: </label>
-        <input type="text" name="zipNum" defaultValue={props.favorDetail.zipcode} />
-        <br /><br />
-      
-        {/* <label>Adress:  </label>
-        <input type="text" name="location" defaultValue={props.location}  />
-        <br /><br /> */}
 
         <button type="submit">Edit Favor</button>
       </form>
       <br/>
 
       <form id="" action={`/favordelete/${props._id}`} method="POST">
-        <button type="submit">Delete Favor</button>
+        <button className="formbutton trash" type="submit">
+        <img className="navbar-icon" src="./../icons/trash.png"/>
+        </button>
       </form>
+      </section>
       </Layout>
   );
 }

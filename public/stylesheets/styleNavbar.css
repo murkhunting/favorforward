@@ -1,8 +1,7 @@
   .navbar-top{
     z-index: 1;
     background-image: url(./../icons/headerv2.png);
-    background-repeat: no-repeat;
-    background-size: 110vh auto;
+    background-size: cover;
     background-position-x: center;
     position: fixed; /*cambiar en res 500 y 1000. y ponerla hidden en 1000*/
     width: 100%;
@@ -13,6 +12,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    border-bottom: solid rgb(163, 163, 163) 0.3px;
   }
    
   .navbar-bottom {
@@ -23,6 +23,7 @@
     bottom: 0;
     overflow: hidden;
     left: 0px;
+    border-top: solid rgb(163, 163, 163) 0.3px;
   }
     
   .navbar-bottom ul {
@@ -33,7 +34,7 @@
 
   .navbar-bottom li {
     display: inline-block;
-    padding: .4rem 3.5%;
+    padding: .2rem 3%;
   
   }
   .navbar-bottom a {    
@@ -67,11 +68,6 @@
   #iclogo {
     height: 7vh;
   }
-
-  
-
-  
-  
 
   
   

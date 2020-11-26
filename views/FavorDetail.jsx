@@ -16,8 +16,9 @@ switch (props.favorDetail.date.getDay()) {
 
   return (
     <Layout title="Detail Favor Page" userIsLoggedIn={props.userIsLoggedIn} name={props.name} profilepic={props.profilepic}>
-      <h1>Detail Favor Page</h1>
-      <br /><br />
+      <section>
+      {/* <h2>{props.favorDetail.title}</h2>
+      <br/> */}
       <h3>Title: {props.favorDetail.title} </h3>
       <br />
       <h3>Name: {props.favorDetail.createrUser.name} </h3>
@@ -43,20 +44,20 @@ switch (props.favorDetail.date.getDay()) {
       
       {(props.favorDetail.createrUser._id == props.currentUserId) ? (
         <a className="" href={`/favoredit/${props.favorDetail._id}`}>
-          <img className="navbar-icon" src="./../images/icon-logo.png" />
-          <p className="navbar-title">Edit Favor</p>
+          <button className="formbutton" type="button">Edit Favor</button>
         </a>
       ) : (
         props.favorDetail.status == "Favor Created" && (
         <form id="" action={`/favordo/${props.favorDetail._id}`} method="POST">
-          <button type="submit">DO Favor</button>
+          <button className="formbutton" type="submit">Do Favor</button>
         </form>)
         )}
       
       {props.favorDetail.status == "Favor Accepted" && (
         <form id="" action={`/favorcancel/${props.favorDetail._id}`} method="POST">
-        <button type="submit">Cancel Favor</button>
+        <button className="formbutton" type="submit">Cancel Favor</button>
       </form>)}
+      </section>
 
     </Layout>
   );

@@ -79,8 +79,10 @@ userRouter.get("/edit", isLoggedIn, (req, res, next) => {
 });
 
 userRouter.post("/edit", isLoggedIn, parser.single("profilepic"), (req, res, next) => {
-    const { name, email, age } = req.body;
-    let profilepic;
+    const { name, email, age  } = req.body;
+    let profilepic = req.body.profilepic
+    // console.log("profillepic", req.body)
+    // console.log("req.file", req.file)
     if (req.file) profilepic = req.file.secure_url;
 
     User.findByIdAndUpdate(

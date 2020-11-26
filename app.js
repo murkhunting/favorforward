@@ -15,6 +15,7 @@ const userRouter = require("./routes/userRouter");
 const favorRouter = require("./routes/favorRouter");
 const apiRouter = require("./routes/apiRouter");
 const Favor = require("./models/NewFavor.model");
+// const User = require("./../models/User.model");
 
 const app = express();
 
