@@ -12,6 +12,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    border-bottom: solid rgb(163, 163, 163) 0.3px;
   }
    
   .navbar-bottom {
@@ -32,7 +33,7 @@
 
   .navbar-bottom li {
     display: inline-block;
-    padding: .4rem 3.5%;
+    padding: .2rem 3%;
   
   }
   .navbar-bottom a {    

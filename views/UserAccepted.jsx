@@ -18,21 +18,19 @@ function UserAccepted(props) {
 
   return (
     <Layout title="UserAccepted Page" userIsLoggedIn={props.userIsLoggedIn} name={props.name} profilepic={props.profilepic} location={props.location}>
-      <h1>Profile page</h1>
-      <br /> <br />
-      <img className="user-image" src={`${props.user.profilepic}`} />
-      <a className="" href={"/user/edit"}>
-        <img className="settings-icon" src="./../icons/setting.png" />
-      </a>
-      <br/>
-      <br/>
-      <h1>{props.user.name}</h1>
-      <br />
-      <h1>Age: {props.user.age}</h1>
-      <br />
-      <h1>{props.user.email}</h1>
-      <br />
-     
+      <section >
+        <h1>{props.user.name}</h1>
+        <br />
+        <img className="user-image" src={`${props.user.profilepic}`} />
+        <a className="" href={"/user/edit"}>
+          <img className="settings-icon" src="./../icons/setting.png" />
+        </a>
+        <br/>
+        <br/>
+        <h1>Age: {props.user.age}</h1>
+        <br />
+        <h1>{props.user.email}</h1>
+      </section>
       <br />
       <br/>
       <div className="aline">
