@@ -69,15 +69,14 @@ userRouter.post("/delete", isLoggedIn, (req, res, next) => {
   const {_id} = req.session.currentUser
   console.log("id--------",_id);
   User.findByIdAndDelete(_id)
-    .then(() => 
-    {
-    req.session.destroy((error)=> {
-      if (error){
-        console.log(error)
-      }else{
-        res.redirect("/")
-      }
-    })
+    .then(() => {
+        req.session.destroy((error)=> {
+        if (error){
+            console.log(error)
+        }else{
+            res.redirect("/")
+        }
+        })
     })
     .catch((err) => console.log(err));
 });

@@ -9,9 +9,10 @@ const Favors = require('../models/NewFavor.model');
 router.get('/favors', (req, res, next) => {
   Favors.find()
     .then(favors => {
-      res.json(favors)
+      //CL it should look in the proper key, meaning-> "favor.location" of each
+      res.json(favors.location)
+      .catch((err) => console.log(err));
     })
-    .catch((err) => console.log(err));
 });
 
 // router.get('/restaurants', (req, res, next) => {

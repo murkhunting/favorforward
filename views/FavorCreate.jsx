@@ -35,7 +35,18 @@ function FavorCreate() {
         <br />
 
         <label>Adress: </label>
-        <input type="text" name="location" placeholder="Adress" />
+        <input type="text" name="address" placeholder="Adress" />
+        <br />
+        <br />
+
+        <label>Zipcode: </label>
+        <input type="text" name="zipNum" placeholder="Adress" required/>
+        {/* <select id=""  name="location">
+          <option value="" selected disabled hidden>Choose here</option>
+          <option value="Tennis">08001</option>
+          <option value="Football">08002</option>
+          <option value="Pool">08003</option>
+        </select> */}
         <br />
         <br />
 
@@ -48,7 +59,7 @@ function FavorCreate() {
         } */}
       </form>
 
-      <div id='map' style={{width: "1000px", height: "600px"}}></div>
+      {/* <div id='map' style={{width: "1000px", height: "600px"}}></div> */}
 
 
       <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.css' rel='stylesheet' />

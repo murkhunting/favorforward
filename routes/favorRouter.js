@@ -6,6 +6,7 @@ const Favor = require("./../models/NewFavor.model");
 
 //---helpers
 const isLoggedIn = require("./../utils/isLoggedIn");
+const zipcodesObj = require("./../utils/zipcode");
 
 // //---routes
 favorRouter.get("/favor/create", isLoggedIn, (req, res, next) => {
@@ -15,12 +16,22 @@ favorRouter.get("/favor/create", isLoggedIn, (req, res, next) => {
 
 favorRouter.post("/favor/create", (req, res, next) => {
 
-    const {title, date, timeStart, timeDuration, description, tags, location} = req.body;
+    const {title, date, timeStart, timeDuration, description, tags, address} = req.body;
     const createrUser = req.session.currentUser._id
+    const zipNum = req.body.zipNum
+    const location = { type: 'Point', coordinates: zipcodesObj[zipNum] }
+
+    // console.log("zipNum------------------", zipNum)
+    // console.log("zipNum.valueOf()--------", zipNum.valueOf())
+    // console.log("zipcode------------------", zipcode[zipNum.valueOf()])
+    // console.log("zipcode------------------", zipcode[zipNum])
+    // console.log("zipcode------------------", location)
     
     Favor
-    .create ( {createrUser, title, date, timeStart, timeDuration, description, tags, location})
+    .create ( {createrUser, title, date, timeStart, timeDuration, description, tags, address, location: location})
+    // .create ( {createrUser})
     .then ((createdFavor) => {
+        console.log("createdFavor",createdFavor)
         const favorId = createdFavor._id
         User
         .findByIdAndUpdate(createrUser, { $push: {favorsCreated: favorId}}, {new:true})
@@ -29,7 +40,7 @@ favorRouter.post("/favor/create", (req, res, next) => {
     })
     .catch ((err) => {
         console.log(err)
-        res.render("favor/create")
+        // res.render("favor/create")
     })
 });
 
@@ -44,8 +55,8 @@ favorRouter.get("/favor/:id", (req, res , next) => {
         
         const currentUserId = req.session.currentUser._id
         const props = {favorDetail, currentUserId}
-        console.log(favorDetail);
-        console.log(currentUserId);
+        // console.log(favorDetail);
+        // console.log(currentUserId);
         res.render("FavorDetail", props)
     })
     .catch((error) => console.log(error));

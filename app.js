@@ -61,7 +61,8 @@ app.use("/", favorRouter);
 
 /* GET home page. */
 app.get("/", (req, res, next) => {
-
+  // const x=window.location.href
+// console.log("object", x)
   Favor
     .find()
     .then(favorList => {
