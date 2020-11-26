@@ -8,7 +8,7 @@ const main = () => {
   
   const map = new mapboxgl.Map({
     container: "map",
-    center: [2.1585383, 41.3872853],
+    center: [3.1585383, 41.3872853],
     style: "mapbox://styles/mapbox/dark-v10", //   /dark-v10   /light-v10     /streets-v11     /satellite-v9
     zoom: 13
   });
@@ -28,11 +28,12 @@ const main = () => {
   axios
     .get("http://localhost:3000/api/favors")
     .then((result) => {
+      console.log("---------------------------", result)
       result.data.forEach((favor) => {
         new mapboxgl.Marker()
 
         // console.log("The favor map for Each is---------->", favor)  
-        .setPopup(new mapboxgl.Popup().setHTML(`<a>${favor.title}</a>`))
+        .setPopup(new mapboxgl.Popup().setHTML(`<a class="maplink" href="http://localhost:3000/favor/${favor._id}">${favor.title}</a>`))
         .setLngLat(favor.location.coordinates.reverse())
           // .setLngLat(favor.location.coordinates)
         .addTo(map);

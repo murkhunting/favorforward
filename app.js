@@ -64,9 +64,6 @@ app.use("/", favorRouter);
 /* GET home page. */
 app.get("/", (req, res, next) => {
   
-
-
-
   Favor
     .find()
     .then(favorList => {
