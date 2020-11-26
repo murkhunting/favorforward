@@ -89,7 +89,19 @@ userRouter.post("/edit", isLoggedIn, parser.single("profilepic"), (req, res, nex
       { new: true }
     )
       .then((editedUser) => {
-        res.redirect("/user");
+        // console.log("---------", editedUser)
+        req.session.currentUser.profilepic = editedUser.profilepic;
+        console.log("this is req.session-------------", req.session.currentUser.profilepic)
+        req.session.reload((err) => {
+          //console.log(req.session)
+          if (err) {
+            next(err);
+            return;
+          }
+          
+          res.redirect("/user");
+        });
+        
       })
       .catch((err) => console.log(err));
   }
@@ -110,6 +122,26 @@ userRouter.post("/delete", isLoggedIn, (req, res, next) => {
     })
     })
     .catch((err) => console.log(err));
+});
+
+userRouter.get("/inbox", isLoggedIn, (req, res, next) => {
+  const currentUser = req.session.currentUser._id;
+  User.findById(currentUser)
+    .then((user) => {
+      let props = {}
+      const location = "chat";
+      if (req.session.currentUser) {
+      const userIsLoggedIn = Boolean(req.session.currentUser)
+      const name = req.session.currentUser.name
+      const profilepic = req.session.currentUser.profilepic
+      props = { userIsLoggedIn, name , profilepic, user, location} 
+      // console.log("props", props)
+      } else {
+        props = { user, location}
+      }
+      res.render("Inbox", props);
+    })
+    .catch((error) => console.log(error));
 });
 
 

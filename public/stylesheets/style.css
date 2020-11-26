@@ -1,14 +1,23 @@
 @import "styleReset.css";
 @import "styleNavbar.css";
 
-body{
-    background-color: #EFFAFB ;
-}
+body{ 
+    background-color: #EFFAFB;
+    padding: 100px 0px 0px;
+    font: 16px 'Roboto', sans-serif, Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    margin: 1% auto 10%;
+    width: 100vW;
+    text-align: center ;    
+    text-decoration-line: none;
+  }
 
 .user-image{
     object-fit: cover;
-    height: 250px;
-    width: 250px;
+    height: 60vw;
+    width: 60vw;
+    max-width: 250px;
+    max-height: 250px;
     border-radius: 25%;
     border: solid #36B8BF 3px;
     

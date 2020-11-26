@@ -1,49 +1,20 @@
-
-body{ 
-    background-color: #f8f8f8;
-    padding: 100px 0px 0px;
-    font: 16px 'Roboto', sans-serif, Helvetica, Arial, sans-serif;
-    font-weight: 400;
-    margin: 1% auto 10%;
-    width: 100vW;
-    text-align: center ;
-  }
-  
-  
   .navbar-top{
-    /* background-color: rgba(255, 255, 255, 0.473); */
-    background-color: #EFFAFB;
+    
+    background-image: url(./../icons/headerv2.png);
+    background-repeat: no-repeat;
+    background-size: 110vh auto;
+    background-position-x: center;
     position: fixed; /*cambiar en res 500 y 1000. y ponerla hidden en 1000*/
     width: 100%;
-    height: 7%;
+    height: auto;
     top: 0px;
     left: 0px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    
   }
-  .navbar-top .xnavbar-icon{
-    padding: 0px 10px;
-  }
-  .logoutxt{
-    color: #2d354c;
-    font-size: 18px;
-    font-weight: 500;
-    line-height: 18px;
-    text-align: center;
-    width: 100%;
-    /* width: 100%; */
-    }
-  
-  
-  .xcar-img{
-    height: 300px;
-    background-color: red;
-    background-blend-mode: multiply; 
-    
-  }
+   
   .navbar-bottom {
     background-color: rgb(255, 255, 255);
     position: fixed; /*cambiar en res 500 y 1000. y ponerla hidden en 1000*/
@@ -52,17 +23,13 @@ body{
     overflow: hidden;
     left: 0px;
   }
-  
-  
-  
+    
   .navbar-bottom ul {
-    /*float: right; recordar quitar y 
-    usar bootstrap*/
     text-align: center;
     padding: 0;
     margin: 0;
-    
   }
+
   .navbar-bottom li {
     display: inline-block;
     padding: .4rem 3.5%;
@@ -70,11 +37,6 @@ body{
   }
   .navbar-bottom a {    
     text-decoration: none;  
-  }
-  .navbar-title{
-    color:#000;
-    font-size: .8rem;
-    margin: 0px;
   }
   
   .navbar-texticon {
@@ -102,16 +64,9 @@ body{
   }
 
   #iclogo {
-    height: 11vh;
+    height: 7vh;
   }
-  .btnback {
-    height: 6vh;
-    min-height: 15px;
-    max-height: 30px;
-  }
-  #btn-back img {
-    height: 1.8em;
-  }
+
   
 
   

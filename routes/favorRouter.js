@@ -80,7 +80,7 @@ favorRouter.get("/favoredit/:id", isLoggedIn, (req, res, next) => {
         }else{
         props = {favorDetail}
         }
-        res.render("FavorEdit", favorDetail)
+        res.render("FavorEdit", props)
     })
     .catch(error => console.log(error))
 
@@ -162,5 +162,7 @@ favorRouter.post("/favorcancel/:id", (req, res, next) => {
     .catch((err)=>console.log(err))
 
 })
+
+
 
 module.exports = favorRouter;
