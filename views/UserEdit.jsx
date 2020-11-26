@@ -4,41 +4,30 @@ const Layout = require("./Layout");
 function UserEdit(props) {
   return (
     <Layout title="User Edit Page" userIsLoggedIn={props.userIsLoggedIn} name={props.name} profilepic={props.profilepic} location={props.location}>
-      <h1>User Edit Page</h1>
-      <br />
-      <br />
-      <form
-        id="form"
-        action={"/user/edit"}
-        method="POST"
-        encType="multipart/form-data"
-      >
-        <label>Profile picture</label>
-        <input type="file" name="profilepic" />
-        <br />
-        <br />
-        <label>Name: </label>
+      <section>
+      <h2>EDIT PROFILE</h2>
+    
+      <form id="form" action={"/user/edit"} method="POST" encType="multipart/form-data">
+        <h1>Name:</h1>
         <input type="text" name="name" defaultValue={props.user.name} />
-        <br />
-        <br />
-
-        <label>Email: </label>
+        <h1>Email:</h1>
         <input type="email" name="email" defaultValue={props.user.email} />
-        <br />
-        <br />
-
-        <label>Age: </label>
+        <h1>Age:</h1>
         <input type="text" name="age" defaultValue={props.user.age} />
-        <br />
-        <br />
-
-        <button type="submit">Save Changes</button>
+        <h1>Profilepic:</h1>
+        <input  className="imageselect" type="file" name="profilepic" />
+        <br/>
+        <br/>
+        <button type="submit">Save</button>
         <br />
         <br />
       </form>
       <form id="" action={"/user/delete"} method="POST">
-        <button type="submit">Delete Account</button>
+      <button className="trash" type="submit">
+        <img className="navbar-icon" src="./../icons/trash.png"/>
+        </button>
       </form>
+      </section>
       
     </Layout>
   );

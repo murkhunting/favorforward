@@ -9,18 +9,23 @@ const isLoggedIn = require("./../utils/isLoggedIn");
 
 // //---routes
 favorRouter.get("/favor/create", isLoggedIn, (req, res, next) => {
-    let props = {}
-    const location = "add";
-    if (req.session.currentUser) {
-    const userIsLoggedIn = Boolean(req.session.currentUser)
-    const name = req.session.currentUser.name
-    const profilepic = req.session.currentUser.profilepic
-    props = { userIsLoggedIn, name , profilepic, location} 
-    // console.log("props", props)
-    } else {
-      props = {location}
-    } //CL>cl current session user name to greet
-  res.render("FavorCreate", props);
+    User.findById(req.session.currentUser._id)
+    .then((user)=>{
+    
+        let props = {}
+        const location = "add";
+        if (req.session.currentUser) {
+            const userIsLoggedIn = Boolean(req.session.currentUser)
+            const name = req.session.currentUser.name
+            const profilepic = req.session.currentUser.profilepic
+            
+            props = { userIsLoggedIn, name , profilepic, location, user} 
+            // console.log("props", props)
+        } else {
+            props = {location}
+        } //CL>cl current session user name to greet
+        res.render("FavorCreate", props);
+    })
 });
 
 favorRouter.post("/favor/create", (req, res, next) => {
@@ -39,7 +44,7 @@ favorRouter.post("/favor/create", (req, res, next) => {
     })
     .catch ((err) => {
         console.log(err)
-        res.render("favor/create")
+        res.redirect("/favor/create")
     })
 });
 
@@ -161,6 +166,27 @@ favorRouter.post("/favorcancel/:id", (req, res, next) => {
     .then( user => res.redirect("/user"))
     .catch((err)=>console.log(err))
 
+})
+
+favorRouter.get("/favorsearch", (req,res,next) =>{
+
+    Favor
+    .find()
+    .then(favorList => {
+      let props = {}
+      const location = "search";
+      if (req.session.currentUser) {
+      
+      const userIsLoggedIn = Boolean(req.session.currentUser)
+      const name = req.session.currentUser.name
+      const profilepic = req.session.currentUser.profilepic
+      props = { userIsLoggedIn, name , profilepic, favorList, location} 
+      // console.log("props", props)
+      } else {
+        props = { favorList, location}
+      }
+      res.render("FavorSearch", props);
+    })
 })
 
 

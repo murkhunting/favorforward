@@ -59,7 +59,7 @@ function Layout(props) {
                 </li>
                 <li className="nav-item">
                   <div className="navbar-texticon">
-                      <a className="navbar-icontitle" href="/">
+                      <a className="navbar-icontitle" href="/favorsearch">
                       {(props.location == "search") ? (
                         <img className="navbar-icon-clicked" src="./../icons/search.png" />
                         ) :(

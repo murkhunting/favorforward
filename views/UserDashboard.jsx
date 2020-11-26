@@ -17,7 +17,7 @@ function UserDashboard(props) {
   };
 
   return (
-    <Layout title="UserDashboard Page" userIsLoggedIn={props.userIsLoggedIn} name={props.name} profilepic={props.profilepic} location={props.location}>
+    <Layout title="UserDashboard Page" userIsLoggedIn={props.userIsLoggedIn} name={props.name} profilepic={props.user.profilepic} location={props.location}>
       <section >
         <h1>{props.user.name}</h1>
         <br />
@@ -33,30 +33,32 @@ function UserDashboard(props) {
       </section>
       <br />
       <br/>
-      <div className="aline">
-        <h3 className="button-clicked">FAVORS CREATED</h3>
-        {/* <button type="button">PENDING</button> */}
-        <a href={"/user/accepted"}>
-          <h3 className="button-unclicked">FAVORS ACCEPTED</h3>
-        </a>
-      </div>
-      
-      {props.user.favorsCreated.map((favorCreated, i) => {
-        return (
-          <a href={`/favor/${favorCreated.id}`}>
-            <h2>
-              {favorCreated.title.toUpperCase()} - Date:{" "}
-              {getDayFavor(favorCreated.date.getDay())}{" "}
-              {favorCreated.date.getDate()}/{favorCreated.date.getMonth()}
-            </h2>
-            
-            <favorCard key={i} />
+      <section>
+        <div className="aline">
+          <h3 className="button-clicked">FAVORS CREATED</h3>
+          {/* <button type="button">PENDING</button> */}
+          <a href={"/user/accepted"}>
+            <h3 className="button-unclicked">FAVORS ACCEPTED</h3>
           </a>
-        );
-      })}
-      <br />
-      <br />
-      
+        </div>
+        
+        {props.user.favorsCreated.map((favorCreated, i) => {
+          return (
+            <a href={`/favor/${favorCreated.id}`}>
+              <h2>
+                {favorCreated.title.toUpperCase()} - {" "}
+                {getDayFavor(favorCreated.date.getDay())}{" "}
+                {favorCreated.date.getDate()}/{favorCreated.date.getMonth()}
+              </h2>            
+              <favorCard key={i} />
+            </a>
+          );
+        })}
+      </section>
+      <br/>
+      <br/>
+      <br/>
+      <br/>      
     </Layout>
   );
 }

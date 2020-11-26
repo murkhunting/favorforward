@@ -17,9 +17,9 @@ function UserAccepted(props) {
   };
 
   return (
-    <Layout title="UserAccepted Page" userIsLoggedIn={props.userIsLoggedIn} name={props.name} profilepic={props.profilepic} location={props.location}>
+    <Layout title="UserAccepted Page" userIsLoggedIn={props.userIsLoggedIn} name={props.name} profilepic={props.user.profilepic} location={props.location}>
       <section >
-        <h1>{props.user.name}</h1>
+        <h2>{props.user.name.toUpperCase()}</h2>
         <br />
         <img className="user-image" src={`${props.user.profilepic}`} />
         <a className="" href={"/user/edit"}>
@@ -33,26 +33,31 @@ function UserAccepted(props) {
       </section>
       <br />
       <br/>
+      <section>
       <div className="aline">
-        <a href={"/user"}>
-          <h3 className="button-unclicked">FAVORS CREATED</h3>
-        </a>
-        <h3 className="button-clicked">FAVORS ACCEPTED</h3>
-        {/* <button type="button">PENDING</button> */}
-      </div>
-      {props.user.favorsProvided.map((favorAccepted, i) => {
-        return (
-          <a href={`/favor/${favorAccepted.id}`}>
-            <h2>
-              {favorAccepted.title.toUpperCase()} - Date:{" "}
-              {getDayFavor(favorAccepted.date.getDay())}{" "}
-              {favorAccepted.date.getDate()}/{favorAccepted.date.getMonth()}
-            </h2>
-            <br />
-            <favorCard key={i} />
+          <a href={"/user"}>
+            <h3 className="button-unclicked">FAVORS CREATED</h3>
           </a>
-        );
-      })}
+          <h3 className="button-clicked">FAVORS ACCEPTED</h3>
+          {/* <button type="button">PENDING</button> */}
+        </div>
+        {props.user.favorsProvided.map((favorAccepted, i) => {
+          return (
+            <a href={`/favor/${favorAccepted.id}`}>
+              <h2>
+                {favorAccepted.title.toUpperCase()} - {" "}
+                {getDayFavor(favorAccepted.date.getDay())}{" "}
+                {favorAccepted.date.getDate()}/{favorAccepted.date.getMonth()}
+              </h2>
+              <favorCard key={i} />
+            </a>
+          );
+        })}
+      </section>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
     </Layout>
   );
 }

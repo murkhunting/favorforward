@@ -4,26 +4,16 @@ const Layout = require("./Layout");
 function FavorEdit(props) {
   return (
     <Layout title="Edit Favor Page" userIsLoggedIn={props.userIsLoggedIn} name={props.name} profilepic={props.profilepic}>
-      <h1>Edit Favor Page</h1>
-      <br /><br />
+      <section>
+      <h2>EDIT FAVOR</h2>
       <form id="" action={`/favoredit/${props._id}`} method="POST">
-        <label>Title:  </label>
-        <input type="text" name="title" defaultValue={props.title} />
-        <br /><br />
-        <label>Date:  </label>
-        <input type="date" name="date" defaultValue={props.date} required/>
-        <br /><br />
-        <label>Starting Time:  </label>
-        <input type="text" name="timeStart" defaultValue={props.timeStart} />
-        <br /><br />
-        <label>Duration Time:  </label>
-        <input type="text" name="timeDuration" defaultValue={props.timeDuration}  />
-        <br /><br />
-        <label>Description:  </label>
-        <input type="text" name="description" defaultValue={props.description} />
-        <br /><br />
-        <label>Tags:  </label>
+        
+        <input type="text" name="title" defaultValue={props.favorDetail.title} />
+        <input type="text" name="timeStart" defaultValue={props.favorDetail.timeStart} />
+        <input type="text" name="timeDuration" defaultValue={props.favorDetail.timeDuration}  />
+        <input type="text" name="description" defaultValue={props.favorDetail.description} />
         <input type="text" name="tags" defaultValue={props.tags}  />
+        <input type="date" name="date" defaultValue={props.favorDetail.date} required/>
         <br /><br />
         {/* <label>Adress:  </label>
         <input type="text" name="location" defaultValue={props.location}  />
@@ -34,8 +24,11 @@ function FavorEdit(props) {
       <br/>
 
       <form id="" action={`/favordelete/${props._id}`} method="POST">
-        <button type="submit">Delete Favor</button>
+        <button className="trash" type="submit">
+        <img className="navbar-icon" src="./../icons/trash.png"/>
+        </button>
       </form>
+      </section>
       </Layout>
   );
 }
