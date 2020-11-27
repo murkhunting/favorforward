@@ -6,7 +6,7 @@ function FavorEdit(props) {
     <Layout title="Edit Favor Page" userIsLoggedIn={props.userIsLoggedIn} name={props.name} profilepic={props.profilepic}>
       <section>
       <h2>EDIT FAVOR</h2>
-      <form id="" action={`/favoredit/${props._id}`} method="POST">
+      <form id="" action={`/favoredit/${props.favorDetail._id}`} method="POST">
         
         <input type="text" name="title" placeholder="title" defaultValue={props.favorDetail.title} />
         <input type="text" name="timeStart" placeholder="timeStart" defaultValue={`at ${props.favorDetail.timeStart}`} />
@@ -18,16 +18,17 @@ function FavorEdit(props) {
         <input type="text" name="zipNum" placeholder="zipNum" defaultValue={props.favorDetail.zipcode} />
         <br /><br />
 
-        <button type="submit">Edit Favor</button>
+        <button className="formbutton" type="submit">Edit Favor</button>
       </form>
       <br/>
 
       <form id="" action={`/favordelete/${props._id}`} method="POST">
-        <button className="formbutton trash" type="submit">
+        <button className=" trash" type="submit">
         <img className="navbar-icon" src="./../icons/trash.png"/>
         </button>
       </form>
       </section>
+      <br/><br/><br/><br/>
       </Layout>
   );
 }

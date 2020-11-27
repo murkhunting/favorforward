@@ -104,16 +104,24 @@ favorRouter.get("/favoredit/:id", isLoggedIn, (req, res, next) => {
 favorRouter.post("/favoredit/:id", isLoggedIn, (req, res, next) => {
     
     const {title, date, timeStart, timeDuration, description, tags, address } = req.body;
+    
     const zipcode = req.body.zipNum
     const location = { type: 'Point', coordinates: zipcodesObj[zipcode] }
+    console.log("--------------", req.params.id)
+    console.log("--------------", req.body.id)
+    console.log("--------------", zipcode)
+    console.log("--------------", req.body)
+    console.log("--------------", req.params)
 
     Favor
     .findByIdAndUpdate ( 
         req.params.id, 
-        {title, date, timeStart, timeDuration, description, tags, address, zipcode, location: location},
+        {title, date, timeStart, timeDuration, description, tags, address, zipcode, location},
         {new:true}
-    )
-    .then ((editedFavor) => {
+        )
+        .then ((editedFavor) => {
+            
+            console.log("--------------", editedFavor)
         const favorId = editedFavor._id
         res.redirect(`/favor/${favorId}`)
     })
