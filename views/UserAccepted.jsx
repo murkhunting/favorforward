@@ -27,18 +27,21 @@ function UserAccepted(props) {
         </a>
         <br/>
         <br/>
-        <h1>Age: {props.user.age}</h1>
-        <br />
         <h1>{props.user.email}</h1>
+        <br />
+        <h1>Age: {props.user.age}</h1>
+        <br/>
       </section>
       <br />
-      <br/>
+      
       <section>
+        <h1>FAVORS:</h1>
+        <br/>
       <div className="aline">
           <a href={"/user"}>
-            <h3 className="button-unclicked">FAVORS CREATED</h3>
+            <h3 className="button-unclicked">CREATED</h3>
           </a>
-          <h3 className="button-clicked">FAVORS ACCEPTED</h3>
+          <h3 className="button-clicked">ACCEPTED</h3>
           {/* <button type="button">PENDING</button> */}
         </div>
         {props.user.favorsProvided.map((favorAccepted, i) => {

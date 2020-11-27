@@ -34,9 +34,14 @@ function Layout(props) {
               <a className="navbar-icontitle" href="/info">
                 <img  className="navbar-icon" src="./../icons/info.png" />
               </a>
+              
+              {props.userIsLoggedIn ? (
               <a className="navbar-icontitle" href="/auth/logout">
                 <img className="navbar-icon" src="./../icons/logout.png" />
               </a>
+              ) : (
+                <img className="navbar-icon" src="./../icons/empty.png" />
+              )}
             </div>    
           </navtop>
           {/* END top navbar */}

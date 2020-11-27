@@ -19,26 +19,40 @@ switch (props.favorDetail.date.getDay()) {
       <section>
       <h2>FAVOR DETAIL</h2>
       <br/>
-      <h3>Title: {props.favorDetail.title} </h3>
+      <h3>Title: 
+        <h3 style={{fontWeight: "bold"}}> {props.favorDetail.title}</h3> 
+        </h3>
       <br />
-      <h3>Name: {props.favorDetail.createrUser.name} </h3>
-      <br />
-
-      <h3>Date: {day} {props.favorDetail.date.getDate()}/{props.favorDetail.date.getMonth()}</h3>
-      <br />
-
-      <h3>Starting Time: {props.favorDetail.timeStart}</h3>
+      <h3>Asker: 
+        <h3 style={{fontWeight: "bold"}}> {props.favorDetail.createrUser.name}</h3> 
+        </h3>
       <br />
 
-      <h3>Duration Time: {props.favorDetailtimeDuration}</h3>
+
+      <h3>Starting Time: 
+        <h3 style={{fontWeight: "bold"}}>{props.favorDetail.timeStart}</h3>
+        </h3>
       <br />
 
-      <h3>Description: {props.favorDetail.description}</h3>
+      <h3>Duration Time: 
+        <h3 style={{fontWeight: "bold"}}>{props.favorDetail.timeDuration}</h3>
+        </h3>
       <br />
 
-      <h3>Adress:</h3> {/* <h3>{props.location}</h3> */}
+      <h3>Description: 
+        <h3 style={{fontWeight: "bold"}}>{props.favorDetail.description}</h3>
+        </h3>
       <br />
 
+      <h3>Adress:
+      <h3 style={{fontWeight: "bold"}}>{props.favorDetail.adress}</h3>
+      </h3>
+      <br />
+
+      <h3>Date: 
+        <h3 style={{fontWeight: "bold"}}>{day} {props.favorDetail.date.getDate()}/{props.favorDetail.date.getMonth()}</h3>
+      </h3>
+      <br />
       {(props.favorDetail.createrUser._id == props.currentUserId) ? (
         <a className="" href={`/favoredit/${props.favorDetail._id}`}>
           <button type="button">Edit Favor</button>

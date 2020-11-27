@@ -3,11 +3,15 @@
 
 body{ 
     background-color: #EFFAFB;
-    padding: 100px 0px 0px;
+    padding: 80px 0px 0px;
     font: 16px 'Roboto', sans-serif, Helvetica, Arial, sans-serif;
     font-weight: 400;
     width: 100vW;
     text-align: center ;  
+}
+p{
+    padding: 30px;
+    text-align: left;
 }
 
 a{
@@ -25,9 +29,7 @@ section{
     border: solid #d6d6d6 1px;
     
 }
-h1{
-    
-}
+
 h2{
     text-decoration: none;
     background-color: #EFFAFB;
@@ -56,8 +58,18 @@ input{
     max-height: 250px;
     border-radius: 25%;
     border: solid #36B8BF 3px;
-    
+
 }
+
+/* esto viene de mapbox ale  */
+.marker {
+    background-image: url('./../images/usuario.png');
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
 
 .profile-icon{
     object-fit: cover;
@@ -101,6 +113,7 @@ input{
     border:solid #36B8BF 1px;
     /* border-radius: 8px; */
     padding: 8px;
+    width:150px
     
 }
 
@@ -109,7 +122,7 @@ input{
     border: solid rgb(112, 112, 112) 1px;
     /* border-radius: 8px; */
     padding: 8px;
-    
+    width:150px    
 }
 
 .settings-icon{
@@ -164,4 +177,5 @@ button{
 
 .signup{
     border: solid rgb(112, 112, 112) 1px;
+    text-decoration: underline;
 }

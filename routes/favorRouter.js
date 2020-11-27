@@ -6,6 +6,7 @@ const Favor = require("./../models/NewFavor.model");
 
 //---helpers
 const isLoggedIn = require("./../utils/isLoggedIn");
+const zipcodesObj = require("./../utils/zipcode");
 
 // //---routes
 favorRouter.get("/favor/create", isLoggedIn, (req, res, next) => {
@@ -30,12 +31,22 @@ favorRouter.get("/favor/create", isLoggedIn, (req, res, next) => {
 
 favorRouter.post("/favor/create", (req, res, next) => {
 
-    const {title, date, timeStart, timeDuration, description, tags, location} = req.body;
+    const {title, date, timeStart, timeDuration, description, tags, address} = req.body;
     const createrUser = req.session.currentUser._id
+    const zipNum = req.body.zipNum
+    const location = { type: 'Point', coordinates: zipcodesObj[zipNum] }
+
+    // console.log("zipNum------------------", zipNum)
+    // console.log("zipNum.valueOf()--------", zipNum.valueOf())
+    // console.log("zipcode------------------", zipcode[zipNum.valueOf()])
+    // console.log("zipcode------------------", zipcode[zipNum])
+    // console.log("zipcode------------------", location)
     
     Favor
-    .create ( {createrUser, title, date, timeStart, timeDuration, description, tags, location})
+    .create ( {createrUser, title, date, timeStart, timeDuration, description, tags, address, location: location})
+    // .create ( {createrUser})
     .then ((createdFavor) => {
+        console.log("createdFavor",createdFavor)
         const favorId = createdFavor._id
         User
         .findByIdAndUpdate(createrUser, { $push: {favorsCreated: favorId}}, {new:true})
@@ -64,7 +75,7 @@ favorRouter.get("/favor/:id", (req, res , next) => {
         const profilepic = req.session.currentUser.profilepic
         props = {userIsLoggedIn, name , profilepic, favorDetail, currentUserId}
         }else{
-        props = {favorDetail, currentUserId}
+        props = {favorDetail}
         }
         res.render("FavorDetail", props)
     })
@@ -145,7 +156,7 @@ favorRouter.post("/favordo/:id", isLoggedIn, (req, res, next) => {
     
     Favor
     .findByIdAndUpdate( doFavorId, {providerUser: currUserId, status: "Favor Accepted"})
-    .then( user => res.redirect("/user/"))
+    .then( user => res.redirect("/user/accepted"))
     .catch((err)=>console.log(err))
 
 })
@@ -163,7 +174,7 @@ favorRouter.post("/favorcancel/:id", (req, res, next) => {
     // .findOneAndRemove ( doFavorId, {providerUser: currUserId})
     // .findByIdAndUpdate( doFavorId, { $pull: {providerUser: currUserId, status: "Favor Created"}})
     .findByIdAndUpdate( doFavorId, { $set: {providerUser: [], status: "Favor Created"}})
-    .then( user => res.redirect("/user"))
+    .then( user => res.redirect("/user/accepted"))
     .catch((err)=>console.log(err))
 
 })
@@ -188,7 +199,6 @@ favorRouter.get("/favorsearch", (req,res,next) =>{
       res.render("FavorSearch", props);
     })
 })
-
 
 
 module.exports = favorRouter;
