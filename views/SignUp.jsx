@@ -9,14 +9,10 @@ function Signup(props) {
         <input type="text" name="name" placeholder="Enter your name" />
         <input type="email" name="email" placeholder="Enter your email" />
         <input type="password" name="password" placeholder="Enter your password" />
-        <input
-          type="password"
-          name="repeatPassword"
-          placeholder="Repeat password"
-        />
+        <input type="password" name="repeatPassword" placeholder="Repeat password" />
         <br /><br />
 
-        <button type="submit">SIGN UP</button>
+        <button className="formbutton" type="submit">SIGN UP</button>
 
         {props.errorMessage ? (
           <div className="error-message">{props.errorMessage}</div>

@@ -1,7 +1,7 @@
 @import "styleReset.css";
 @import "styleNavbar.css";
 
-body{ 
+ body{ 
     background-color: #EFFAFB;
     padding: 80px 0px 0px;
     font: 16px 'Roboto', sans-serif, Helvetica, Arial, sans-serif;
@@ -29,7 +29,6 @@ section{
     border: solid #d6d6d6 1px;
     
 }
-
 h2{
     text-decoration: none;
     background-color: #EFFAFB;
@@ -37,9 +36,7 @@ h2{
     border: solid #a0a0a0 1px;
     padding: 8px;
     margin: 8px;
-    
 }
-
 input{
     background-color: white;
     border-radius: 8px;
@@ -49,7 +46,6 @@ input{
     width: 230px;
     text-align: center;
 }
-
 .user-image{
     object-fit: cover;
     height: 60vw;
@@ -57,9 +53,8 @@ input{
     max-width: 250px;
     max-height: 250px;
     border-radius: 25%;
-    border: solid #36B8BF 3px;
-
-}
+    border: solid #36B8BF 3px; 
+ }
 
 /* esto viene de mapbox ale  */
 .marker {
@@ -70,7 +65,7 @@ input{
     border-radius: 50%;
     cursor: pointer;
   }
-
+ 
 .profile-icon{
     object-fit: cover;
     height: 6vh;
@@ -78,13 +73,13 @@ input{
     border-radius: 25%;
     min-height: 25px;
     
-    object-fit: cover;
+    object-fit: cover; 
     /* border: solid black 1px; */
     /* padding:10px; */
     /* margin:10px; */
-}
+} 
 
-.profile-icon-clicked{
+ .profile-icon-clicked{
     object-fit: cover;
     height: 6vh;
     width: 6vh;
@@ -92,12 +87,10 @@ input{
     min-height: 25px;
     
     object-fit: cover;
-    border: solid #36B8BF 1px;
+    border: solid #36B8BF 1px; 
     /* padding:10px; */
     /* margin:10px; */
-}
-
-
+ } 
 
 .aline{
     display: flex;
@@ -105,8 +98,6 @@ input{
     justify-content: center;
     
     align-items: space-between;
-    
-
 }
 .button-clicked{
     background-color: #EFFAFB; 
@@ -116,7 +107,6 @@ input{
     width:150px
     
 }
-
 .button-unclicked{
     background-color:white;
     border: solid rgb(112, 112, 112) 1px;
@@ -124,47 +114,44 @@ input{
     padding: 8px;
     width:150px    
 }
-
 .settings-icon{
     height: 5vh;
     min-height: 25px;
     max-height: 40px;
     margin-left: -4.2vh;
 }
-
 .search-icon{
     background-color: white;
     height: 30px;
     border: solid rgb(112, 112, 112) 1px;
     border-radius: 5px;
-    
     padding: 0.3vh;
 }
-
 .search-container{
     display: flex;
     align-items: center;
     justify-content: center;
-
-
 }
 .search-bar{
     height: 30px;
     width: 230px;
 }
-
 .trash{
     background-color: white;
     border: none;
 }
-
-button{
+/* button{
+    height: 30px;
+    width: 150px;
+    background-color: white;
+    border: solid rgb(112, 112, 112) 1px;
+} */
+.formbutton{
     height: 30px;
     width: 150px;
     background-color: white;
     border: solid rgb(112, 112, 112) 1px;
 }
-
 .imageselect{
     background-color: transparent;
     border-radius: 0;
@@ -172,10 +159,25 @@ button{
     margin: 8px;
     height: 30px;
     width: 230px;
-
 }
-
 .signup{
     border: solid rgb(112, 112, 112) 1px;
     text-decoration: underline;
+}
+
+#map {
+  text-align: left;
+  z-index: 0;
+  height: 93vh;
+  width: 100vw;
+  margin-top: -100px;
+
+ /* position: relative; */
+ /* position: static; */
+}
+
+.maplink{
+  text-decoration: none;
+  color: #222;
+  font-weight: 500;
 }

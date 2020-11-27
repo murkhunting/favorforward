@@ -13,18 +13,12 @@ function FavorCreate(props) {
         <input type="text" name="description" placeholder="Description" required/>
         <input type="text" name="tags" placeholder="Tags" />
         <input type="text" name="address" placeholder="Adress" />
-        <input type="text" name="zipNum" placeholder="Adress" required/>
-        {/* <select id=""  name="location">
-          <option value="" selected disabled hidden>Choose here</option>
-          <option value="Tennis">08001</option>
-          <option value="Football">08002</option>
-          <option value="Pool">08003</option>
-        </select> */}
+        <input type="text" name="zipNum" placeholder="Zip Code" required/>
         <input type="date" name="date" placeholder={Date.now()} required/>
         <br />
         <br />
-        <button type="submit">Create Favor</button>
-      
+        
+        <button className="formbutton" type="submit">Create Favor</button>
 
         {/* {
           props.errorMessage 

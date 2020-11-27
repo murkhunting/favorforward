@@ -9,17 +9,15 @@ function Login(props) {
         <input type="text" name="email" placeholder="Enter your email" />
 
         <input type="password" name="password"  placeholder="*****" />
-        <br/>
-        <br/>
-        <button type="submit">LOGIN</button>
+        <br/> <br/>
+        <button className="formbutton" type="submit">LOGIN</button>
       </form>
 
       {props.errorMessage ? (
         <div className="error-message"> {props.errorMessage}</div>
       ) : null}
 
-        <br />
-        <br/>
+        <br /><br/>
     
       <a clasName="signup" href="/auth/signup">if you don't have an account yet Sign up!</a>
       <br/>

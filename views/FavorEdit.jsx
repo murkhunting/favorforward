@@ -8,23 +8,22 @@ function FavorEdit(props) {
       <h2>EDIT FAVOR</h2>
       <form id="" action={`/favoredit/${props._id}`} method="POST">
         
-        <input type="text" name="title" defaultValue={props.favorDetail.title} />
-        <input type="text" name="timeStart" defaultValue={props.favorDetail.timeStart} />
-        <input type="text" name="timeDuration" defaultValue={props.favorDetail.timeDuration}  />
-        <input type="text" name="description" defaultValue={props.favorDetail.description} />
-        <input type="text" name="tags" defaultValue={props.tags}  />
-        <input type="date" name="date" defaultValue={props.favorDetail.date} required/>
+        <input type="text" name="title" placeholder="title" defaultValue={props.favorDetail.title} />
+        <input type="text" name="timeStart" placeholder="timeStart" defaultValue={`at ${props.favorDetail.timeStart}`} />
+        <input type="text" name="timeDuration" placeholder="timeDuration" defaultValue={`for ${props.favorDetail.timeDuration}`}  />
+        <input type="text" name="description" placeholder="description" defaultValue={`# ${props.favorDetail.description}`} />
+        <input type="text" name="tags" placeholder="tags" defaultValue={props.tags}  />
+        <input type="date" name="date" placeholder="date" defaultValue={props.favorDetail.date} required/>
+        <input type="text" name="address" placeholder="address" defaultValue={props.favorDetail.address} />
+        <input type="text" name="zipNum" placeholder="zipNum" defaultValue={props.favorDetail.zipcode} />
         <br /><br />
-        {/* <label>Adress:  </label>
-        <input type="text" name="location" defaultValue={props.location}  />
-        <br /><br /> */}
 
         <button type="submit">Edit Favor</button>
       </form>
       <br/>
 
       <form id="" action={`/favordelete/${props._id}`} method="POST">
-        <button className="trash" type="submit">
+        <button className="formbutton trash" type="submit">
         <img className="navbar-icon" src="./../icons/trash.png"/>
         </button>
       </form>

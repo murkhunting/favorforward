@@ -15,15 +15,15 @@ function UserEdit(props) {
         <h1>Age:</h1>
         <input type="text" name="age" defaultValue={props.user.age} />
         <h1>Profilepic:</h1>
-        <input  className="imageselect" type="file" name="profilepic" />
+        <input  className="imageselect" type="file" name="profilepic" defaultValue={props.user.profilepic} />
         <br/>
         <br/>
-        <button type="submit">Save</button>
+        <button className="formbutton" type="submit">Save</button>
         <br />
         <br />
       </form>
       <form id="" action={"/user/delete"} method="POST">
-      <button className="trash" type="submit">
+      <button className="formbutton" className="trash" type="submit">
         <img className="navbar-icon" src="./../icons/trash.png"/>
         </button>
       </form>

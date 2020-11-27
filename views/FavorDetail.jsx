@@ -55,18 +55,18 @@ switch (props.favorDetail.date.getDay()) {
       <br />
       {(props.favorDetail.createrUser._id == props.currentUserId) ? (
         <a className="" href={`/favoredit/${props.favorDetail._id}`}>
-          <button type="button">Edit Favor</button>
+          <button className="formbutton" type="button">Edit Favor</button>
         </a>
       ) : (
         props.favorDetail.status == "Favor Created" && (
         <form id="" action={`/favordo/${props.favorDetail._id}`} method="POST">
-          <button type="submit">Do Favor</button>
+          <button className="formbutton" type="submit">Do Favor</button>
         </form>)
         )}
       
       {props.favorDetail.status == "Favor Accepted" && (
         <form id="" action={`/favorcancel/${props.favorDetail._id}`} method="POST">
-        <button type="submit">Cancel Favor</button>
+        <button className="formbutton" type="submit">Cancel Favor</button>
       </form>)}
       </section>
 

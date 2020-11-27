@@ -79,32 +79,31 @@ userRouter.get("/edit", isLoggedIn, (req, res, next) => {
 });
 
 userRouter.post("/edit", isLoggedIn, parser.single("profilepic"), (req, res, next) => {
-    const { name, email, age } = req.body;
-    let profilepic;
-    if (req.file) profilepic = req.file.secure_url;
-
-    User.findByIdAndUpdate(
-      req.session.currentUser._id,
-      { profilepic, name, email, age },
-      { new: true }
-    )
-      .then((editedUser) => {
-        // console.log("---------", editedUser)
-        req.session.currentUser.profilepic = editedUser.profilepic;
-        console.log("this is req.session-------------", req.session.currentUser.profilepic)
-        req.session.reload((err) => {
-          //console.log(req.session)
-          if (err) {
-            next(err);
-            return;
-          }
-          
-          res.redirect("/user");
-        });
-        
-      })
-      .catch((err) => console.log(err));
-  }
+  const { name, email, age  } = req.body;
+  let profilepic = req.body.profilepic
+  // console.log("profillepic", req.body)
+  // console.log("req.file", req.file)
+  if (req.file) profilepic = req.file.secure_url;
+  User.findByIdAndUpdate(
+    req.session.currentUser._id,
+    { profilepic, name, email, age },
+    { new: true }
+  )
+    .then((editedUser) => {
+      // console.log("---------", editedUser)
+      req.session.currentUser = editedUser;
+      console.log("this is req.session-------------", req.session.currentUser.profilepic)
+      // req.session.reload((err) => {
+      //   //console.log(req.session)
+      //   if (err) {
+      //     next(err);
+      //     return;
+      //   }
+      // });
+        res.redirect("/user");
+    })
+    .catch((err) => console.log(err));
+}
 );
 
 userRouter.post("/delete", isLoggedIn, (req, res, next) => {

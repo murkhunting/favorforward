@@ -19,6 +19,7 @@ const favorSchema = new Schema({
         ProviderToCreaterComment: { type: String } //, required: true},
     },
     address: { type:String },
+    zipcode: { type:String },
     location: { type: { type: String, default: "Point"}, coordinates: {type:Array, default:[41.3869474,2.1695633]}}
     // geometry: { type: {type:String, default:"Point"}, coordinates: [Number] }
     // geometry: { { type: { type: String, default:"Point"}} }

@@ -5,12 +5,12 @@ const MAPBOX_ACCESS_TOKEN =
 
 const main = () => {
   mapboxgl.accessToken = MAPBOX_ACCESS_TOKEN;
-
+  
   const map = new mapboxgl.Map({
     container: "map",
-    center: [2.0787281, 41.3948976],
-    style: "mapbox://styles/mapbox/light-v10", //   /dark-v10   /light-v10     /streets-v11     /satellite-v9
-    zoom: 12,
+    center: [3.1585383, 41.3872853],
+    style: "mapbox://styles/mapbox/dark-v10", //   /dark-v10   /light-v10     /streets-v11     /satellite-v9
+    zoom: 13
   });
 
   if (navigator.geolocation) {
@@ -26,14 +26,16 @@ const main = () => {
   }
 
   axios
-    .get("http://localhost:3000/api/favors")
+    // .get("http://localhost:3000/api/favors")
+    .get("https://favorforward.herokuapp.com/api/favors")
     .then((result) => {
       result.data.forEach((favor) => {
-        new mapboxgl.Marker()
-          .setLngLat(favor.location.coordinates.reverse())
-          .setPopup(new mapboxgl.Popup().setHTML("<h1>Put down favor title</h1>"))
-        //   .setLngLat(favor.location.coordinates)
-          .addTo(map);
+        new mapboxgl.Marker() 
+        // .setPopup(new mapboxgl.Popup().setHTML(`<a class="maplink" href="http://localhost:3000/favor/${favor._id}">${favor.title}</a>`))
+        .setPopup(new mapboxgl.Popup().setHTML(`<a class="maplink" href="https://favorforward.herokuapp.com/favor/${favor._id}">${favor.title}</a>`))
+        .setLngLat(favor.location.coordinates.reverse())
+        .addTo(map);
+          
       });
     })
     .catch((err) => console.error(err));

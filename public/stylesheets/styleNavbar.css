@@ -1,5 +1,5 @@
   .navbar-top{
-    
+    z-index: 1;
     background-image: url(./../icons/headerv2.png);
     background-size: cover;
     background-position-x: center;
@@ -16,6 +16,7 @@
   }
    
   .navbar-bottom {
+    z-index: 1;
     background-color: rgb(255, 255, 255);
     position: fixed; /*cambiar en res 500 y 1000. y ponerla hidden en 1000*/
     width: 100%;
@@ -67,11 +68,6 @@
   #iclogo {
     height: 7vh;
   }
-
-  
-
-  
-  
 
   
   
