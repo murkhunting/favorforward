@@ -1,8 +1,5 @@
 # Favor Forward
 
-![](./public/images/logo-readme.png)
-
-
 ## Description
 
 Favor forward is a page meant for charitable harts that want to contribute to their local community. Basically, it offers a platform to ad or request "favors"  for others to offer help based on their current location.
